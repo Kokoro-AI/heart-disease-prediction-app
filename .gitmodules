@@ -1,0 +1,3 @@
+[submodule "heart-disease-prediction-pl"]
+	path = heart-disease-prediction-pl
+	url = git@github.com:Kokoro-AI/heart-disease-prediction-pl.git
