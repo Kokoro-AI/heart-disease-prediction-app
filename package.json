@@ -1,0 +1,11 @@
+{
+  "name": "heart-disease-prediction-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Kokoro-AI/heart-disease-prediction-app.git",
+  "author": "lucasdc6 <lucasdicunzolo@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "tau-prolog": "^0.2.80"
+  }
+}
