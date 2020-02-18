@@ -1,0 +1,58 @@
+{
+  "form": {
+    "title": "Predicción de enfermedades del corazón",
+    "subtitle": "Llene los campos con sus datos y presione 'Analizar'",
+    "age": {
+      "label": "Edad"
+    },
+    "restingBloodPressure": {
+      "label": "Presión arterial en reposo"
+    },
+    "cholesterol": {
+      "label": "Colesterol"
+    },
+    "chestPainType": {
+      "label": "Tipo de dolor de pecho",
+      "options": {
+        "typicalAngina": "Angina típica",
+        "atypicalAngina": "Angina atípica",
+        "nonAnginalPain": "Dolor no anginal",
+        "asymptomatic": "Asintomático"
+      }
+    },
+    "stDepression": {
+      "label": "Descenso ST"
+    },
+    "stSlope": {
+      "label": "Pendiente ST",
+      "options": {
+        "upsloping": "Subida",
+        "flat": "Plana",
+        "downsloping": "Bajada"
+      }
+    },
+    "numMajorVessels": {
+      "label": "Número de vasos principales",
+      "placeholder": "Entre 0 y 3"
+    },
+    "thalassemia": {
+      "label": "Talasemia",
+      "options": {
+        "normal": "Normal",
+        "fixedDefect": "Defecto fijo",
+        "reversableDefect": "Defecto reversible"
+      }
+    },
+    "exerciseInducedAngina": {
+      "label": "Angina inducida por ejercicio"
+    },
+    "submitButton": "Analizar",
+    "validators": {
+      "messages": {
+        "required": "El campo es requerido",
+        "positive": "El número debe ser positivo",
+        "between": "El número debe estar entre {{min}} y {{max}}"
+      }
+    }
+  }
+}

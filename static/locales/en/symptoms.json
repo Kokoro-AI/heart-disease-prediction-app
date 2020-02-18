@@ -1,0 +1,58 @@
+{
+  "form": {
+    "title": "Heart disease prediction",
+    "subtitle": "Fill the fields and press 'Analyze'",
+    "age": {
+      "label": "Age"
+    },
+    "restingBloodPressure": {
+      "label": "Resting blood pressure"
+    },
+    "cholesterol": {
+      "label": "Cholesterol"
+    },
+    "chestPainType": {
+      "label": "Chest pain type",
+      "options": {
+        "typicalAngina": "Typical angina",
+        "atypicalAngina": "Atypical angina",
+        "nonAnginalPain": "Non anginal pain",
+        "asymptomatic": "Asymptomatic"
+      }
+    },
+    "stDepression": {
+      "label": "ST depression"
+    },
+    "stSlope": {
+      "label": "ST slope",
+      "options": {
+        "upsloping": "Upsloping",
+        "flat": "Flat",
+        "downsloping": "Downsloping"
+      }
+    },
+    "numMajorVessels": {
+      "label": "Number of major vessels",
+      "placeholder": "Between 0 and 3"
+    },
+    "thalassemia": {
+      "label": "Thalassemia",
+      "options": {
+        "normal": "Normal",
+        "fixedDefect": "Fixed defect",
+        "reversableDefect": "Reversable defect"
+      }
+    },
+    "exerciseInducedAngina": {
+      "label": "Exercise induced angina"
+    },
+    "submitButton": "Analyze",
+    "validators": {
+      "messages": {
+        "required": "Required field",
+        "positive": "The number must be positive",
+        "between": "The number must be between {{min}} and {{max}}"
+      }
+    }
+  }
+}
