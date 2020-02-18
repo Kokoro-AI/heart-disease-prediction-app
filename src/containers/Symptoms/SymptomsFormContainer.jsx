@@ -1,8 +1,8 @@
 import { reduxForm } from 'redux-form';
-import SymptomsContainer from './SymptomsContainer';
+import SymptomsForm from 'src/components/Symptoms/Form';
 
 const SymptomsFormContainer = reduxForm({
   form: 'symptoms',
-})(SymptomsContainer);
+})(SymptomsForm);
 
 export default SymptomsFormContainer;

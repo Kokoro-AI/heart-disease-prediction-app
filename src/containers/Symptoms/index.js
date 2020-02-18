@@ -1,3 +1,3 @@
-import SymptomsFormContainer from './SymptomsFormContainer';
+import SymptomsContainer from './SymptomsContainer';
 
-export default SymptomsFormContainer;
+export default SymptomsContainer;

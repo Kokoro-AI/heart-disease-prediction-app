@@ -1,9 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Container, Header, Segment } from 'semantic-ui-react';
-import SymptomsForm from 'src/components/Symptoms';
+import { hasSubmitSucceeded } from 'redux-form';
 import { Redirect } from 'react-router';
+import { Container, Header, Segment } from 'semantic-ui-react';
+
 import { useTauProlog } from 'src/lib/hooks/tau-prolog-hook';
+import SymptomsFormContainer from 'src/containers/Symptoms/SymptomsFormContainer';
 
 const analyze = (data) => {
   const { pl } = useTauProlog();
@@ -11,27 +13,25 @@ const analyze = (data) => {
   pl.query('disease(p1)');
 };
 
-const SymptomsContainer = ({ trans, handleSubmit }) => {
-  const symptoms = useSelector((state) => state.form.symptoms);
-  const { query } = useTauProlog();
+const SymptomsContainer = ({ translate }) => {
+  const success = useSelector((state) => hasSubmitSucceeded('symptoms')(state));
 
-  console.log(query('disease(p1)'));
-
-  if (symptoms && symptoms.submitSucceeded) {
-    return (<Redirect to="/results" />);
+  if (success) {
+    return <Redirect to="/results" />;
   }
+
   return (
     <Container style={{ paddingTop: 100 }}>
       <Segment>
         <Header as="h2">
-          {trans('symptoms:form.title')}
+          {translate('symptoms:form.title')}
           <Header.Subheader>
-            {trans('symptoms:form.subtitle')}
+            {translate('symptoms:form.subtitle')}
           </Header.Subheader>
         </Header>
-        <SymptomsForm
-          trans={(name, ...args) => trans(`symptoms:${name}`, ...args)}
-          onSubmit={handleSubmit(analyze)}
+        <SymptomsFormContainer
+          translate={(name, ...args) => translate(`symptoms:${name}`, ...args)}
+          onSubmit={analyze}
         />
       </Segment>
     </Container>

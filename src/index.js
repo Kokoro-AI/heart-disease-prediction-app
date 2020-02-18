@@ -20,7 +20,7 @@ const render = (Component) => {
         <Router basename="/">
           <I18n ns="translations">
             {
-              (t, { i18n }) => <Component trans={t} i18n={i18n} />
+              (t, { i18n }) => <Component translate={t} i18n={i18n} />
             }
           </I18n>
         </Router>

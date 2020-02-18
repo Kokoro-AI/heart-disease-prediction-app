@@ -1,19 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 
 import DevTools from 'src/components/DevTools';
-
-function mapStateToProps(state) {
-  return state;
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators({}, dispatch),
-  };
-}
 
 const App = (props) => {
   const { children } = props;
@@ -30,4 +18,4 @@ App.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

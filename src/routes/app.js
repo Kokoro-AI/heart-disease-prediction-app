@@ -8,8 +8,7 @@ import { PropsRoute } from 'src/components/PropsRoute';
 const AppRoutes = (props) => (
   <AppContainer {...props}>
     <Switch>
-      <PropsRoute path="/" component={SymptomsContainer} {...props} />
-      <PropsRoute path="/analyzer" component={SymptomsContainer} {...props} />
+      <PropsRoute exact path="/" component={SymptomsContainer} {...props} />
     </Switch>
   </AppContainer>
 );

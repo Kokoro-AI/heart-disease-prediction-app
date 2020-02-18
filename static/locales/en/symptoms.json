@@ -3,16 +3,20 @@
     "title": "Heart disease prediction",
     "subtitle": "Fill the fields and press 'Analyze'",
     "age": {
-      "label": "Age"
+      "label": "Age",
+      "placeholder": "Age"
     },
     "restingBloodPressure": {
-      "label": "Resting blood pressure"
+      "label": "Resting blood pressure",
+      "placeholder": "Resting blood pressure"
     },
     "cholesterol": {
-      "label": "Cholesterol"
+      "label": "Cholesterol",
+      "placeholder": "Cholesterol"
     },
     "chestPainType": {
       "label": "Chest pain type",
+      "placeholder": "Chest pain type",
       "options": {
         "typicalAngina": "Typical angina",
         "atypicalAngina": "Atypical angina",
@@ -21,10 +25,12 @@
       }
     },
     "stDepression": {
-      "label": "ST depression"
+      "label": "ST depression",
+      "placeholder": "ST depression"
     },
     "stSlope": {
       "label": "ST slope",
+      "placeholder": "ST slope",
       "options": {
         "upsloping": "Upsloping",
         "flat": "Flat",
@@ -33,10 +39,11 @@
     },
     "numMajorVessels": {
       "label": "Number of major vessels",
-      "placeholder": "Between 0 and 3"
+      "placeholder": "Write a number between 0 and 3"
     },
     "thalassemia": {
       "label": "Thalassemia",
+      "placeholder": "Thalassemia",
       "options": {
         "normal": "Normal",
         "fixedDefect": "Fixed defect",
@@ -44,7 +51,8 @@
       }
     },
     "exerciseInducedAngina": {
-      "label": "Exercise induced angina"
+      "label": "Exercise induced angina",
+      "placeholder": "Exercise induced angina"
     },
     "submitButton": "Analyze",
     "validators": {
