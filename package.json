@@ -24,7 +24,13 @@
     "test": "jest --config .jest.config.js",
     "test:ci": "yarn test --ci",
     "test:watch": "jest --config .jest.config.js --watch",
-    "webpack-defaults": "webpack-defaults"
+    "webpack-defaults": "webpack-defaults",
+    "docker:dev": "yarn docker:build && yarn docker:start",
+    "docker:build": "docker build -f docker/Dockerfile --target development -t heart-disease-prediction-app .",
+    "docker:start": "docker run --rm -it --network host -v $PWD:/usr/src/app heart-disease-prediction-app",
+    "docker:prod": "yarn docker:build:prod && yarn docker:start:prod",
+    "docker:build:prod": "docker build -f docker/Dockerfile --target production -t heart-disease-prediction-app:production .",
+    "docker:start:prod": "docker run --rm -it --network host -v $PWD:/usr/src/app heart-disease-prediction-app:production"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",
