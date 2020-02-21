@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import useAsyncEffect from 'use-async-effect';
+import { MODEL_ARTIFACTS_URL } from 'src/config/app';
 import useModel from './use-model';
 
-const modelJsonFile = '';
-
-export default (modelJson = modelJsonFile, data, options = {}) => {
+export default (data, options = {}) => {
   const [predictions, setPredictions] = useState(null);
-  const model = useModel(modelJson, options);
+  const model = useModel(MODEL_ARTIFACTS_URL, options);
 
   useAsyncEffect(
     async (isMounted) => {

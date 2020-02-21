@@ -13,6 +13,14 @@ export const useTauProlog = () => {
   };
 };
 
+export const useHeartAnalyze = (data, options = {}) => {
+  const { query } = useTauProlog('kokoro.pl');
+  console.log('analyzing data...', data, options);
+  query('disease(p1)');
+  return {};
+};
+
 export default {
   useTauProlog,
+  useHeartAnalyze,
 };

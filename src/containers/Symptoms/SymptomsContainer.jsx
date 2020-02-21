@@ -4,22 +4,15 @@ import { hasSubmitSucceeded } from 'redux-form';
 import { Redirect } from 'react-router';
 import { Container, Header, Segment } from 'semantic-ui-react';
 
-import { useTauProlog } from 'src/lib/hooks/tau-prolog-hook';
-import { useModel } from 'src/lib/hooks/tfjs-hook';
 import SymptomsFormContainer from 'src/containers/Symptoms/SymptomsFormContainer';
+import { useHeartAnalyze } from 'src/lib/hooks/heart-analyze-hook';
 
-const analyze = (data) => {
-  const { pl } = useTauProlog();
-  console.log('analyzing data...', data, pl);
-  pl.query('disease(p1)');
-};
+const analyze = () => {};
 
 const SymptomsContainer = ({ translate }) => {
   const success = useSelector((state) => hasSubmitSucceeded('symptoms')(state));
-  const model = useModel('/models/heart-nn/heart-nn-artifacts/model.json');
-  if (model) {
-    console.log(model.summary());
-  }
+  const { ml, pl } = useHeartAnalyze([]);
+  console.log(ml, pl);
 
   if (success) {
     return <Redirect to="/results" />;
