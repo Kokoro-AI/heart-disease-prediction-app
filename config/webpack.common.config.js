@@ -96,6 +96,11 @@ const config = {
         to: 'locales',
         toType: 'dir',
       },
+      {
+        from: commonPaths.models,
+        to: 'models',
+        toType: 'dir',
+      },
     ]),
   ],
 };

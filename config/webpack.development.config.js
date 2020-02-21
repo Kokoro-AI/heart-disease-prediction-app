@@ -8,7 +8,6 @@ const URL_BASE = 'http://localhost:8091';
 const config = {
   entry: [
     'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
   ],
   mode: 'development',
   devtool: 'eval-source-map',
@@ -36,14 +35,6 @@ const config = {
       },
       {
         from: commonPaths.favicon,
-        to: commonPaths.outputPath,
-      },
-      {
-        from: commonPaths.kokoro,
-        to: commonPaths.outputPath,
-      },
-      {
-        from: commonPaths.tauProlog,
         to: commonPaths.outputPath,
       },
     ]),

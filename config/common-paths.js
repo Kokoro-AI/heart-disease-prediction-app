@@ -13,8 +13,7 @@ module.exports = {
 
   locales: path.resolve(__dirname, '../', 'static/locales/'),
   images: path.resolve(__dirname, '../', 'static/images/'),
+  models: path.resolve(__dirname, '../', 'static/models/'),
   template: path.resolve(__dirname, '../', 'public/index.html'),
   favicon: path.resolve(__dirname, '../', 'public/favicon.ico'),
-  kokoro: path.resolve(__dirname, '../', 'public/kokoro.pl'),
-  tauProlog: path.resolve(__dirname, '../', 'public/tau-prolog.js'),
 };

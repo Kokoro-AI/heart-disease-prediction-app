@@ -5,6 +5,7 @@ import { Redirect } from 'react-router';
 import { Container, Header, Segment } from 'semantic-ui-react';
 
 import { useTauProlog } from 'src/lib/hooks/tau-prolog-hook';
+import { useModel } from 'src/lib/hooks/tfjs-hook';
 import SymptomsFormContainer from 'src/containers/Symptoms/SymptomsFormContainer';
 
 const analyze = (data) => {
@@ -15,6 +16,10 @@ const analyze = (data) => {
 
 const SymptomsContainer = ({ translate }) => {
   const success = useSelector((state) => hasSubmitSucceeded('symptoms')(state));
+  const model = useModel('/models/heart-nn/heart-nn-artifacts/model.json');
+  if (model) {
+    console.log(model.summary());
+  }
 
   if (success) {
     return <Redirect to="/results" />;
