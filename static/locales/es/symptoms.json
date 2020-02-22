@@ -6,13 +6,13 @@
       "label": "Edad",
       "placeholder": "Edad"
     },
-    "restingBloodPressure": {
-      "label": "Presión arterial en reposo",
-      "placeholder": "Presión arterial en reposo"
-    },
-    "cholesterol": {
-      "label": "Colesterol",
-      "placeholder": "Colesterol"
+    "sex": {
+      "label": "Sexo",
+      "placeholder": "Sexo",
+      "options": {
+        "male": "Masculino",
+        "female": "Femenino"
+      }
     },
     "chestPainType": {
       "label": "Tipo de dolor de pecho",
@@ -23,6 +23,35 @@
         "nonAnginalPain": "Dolor no anginal",
         "asymptomatic": "Asintomático"
       }
+    },
+    "restingBloodPressure": {
+      "label": "Presión arterial en reposo",
+      "placeholder": "Presión arterial en reposo"
+    },
+    "cholesterol": {
+      "label": "Colesterol",
+      "placeholder": "Colesterol"
+    },
+    "fastingBloodSugar": {
+      "label": "Glucemia en ayunas",
+      "placeholder": "Glucemia en ayunas",
+      "options": {
+        "lower": "Por debajo de 120mg/ml",
+        "greater": "Greater than 120mg/ml"
+      }
+    },
+    "restEcg": {
+      "label": "Rest ECG",
+      "placeholder": "Rest ECG",
+      "options": {
+        "0": "Normal",
+        "1": "Anormalidad de la onda ST-T",
+        "2": "Hipertrofia del ventrículo izquierdo"
+      }
+    },
+    "maxHeartRateAchieved": {
+      "label": "Frecuencia cardíaca máxima alcanzada",
+      "placeholder": "Frecuencia cardíaca máxima alcanzada"
     },
     "stDepression": {
       "label": "Descenso ST",

@@ -36,17 +36,17 @@
       "label": "Fasting blood sugar",
       "placeholder": "Fasting blood sugar",
       "options": {
-        "lower": "lower than 120mg/ml",
-        "greater": "greater than 120mg/ml"
+        "lower": "Lower than 120mg/ml",
+        "greater": "Greater than 120mg/ml"
       }
     },
     "restEcg": {
       "label": "Rest ECG",
       "placeholder": "Rest ECG",
       "options": {
-        "0": "normal",
+        "0": "Normal",
         "1": "ST-T wave abnormality",
-        "2": "left ventricular hypertrophy"
+        "2": "Left ventricular hypertrophy"
       }
     },
     "maxHeartRateAchieved": {
