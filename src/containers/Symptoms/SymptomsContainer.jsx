@@ -4,18 +4,12 @@ import { hasSubmitSucceeded } from 'redux-form';
 import { Redirect } from 'react-router';
 import { Container, Header, Segment } from 'semantic-ui-react';
 
+import { useHeartAnalyzer } from 'src/lib/hooks/heart-analyze-hook';
 import SymptomsFormContainer from 'src/containers/Symptoms/SymptomsFormContainer';
-import { useHeartAnalyze } from 'src/lib/hooks/heart-analyze-hook';
-
-const analyze = () => {};
 
 const SymptomsContainer = ({ translate }) => {
   const success = useSelector((state) => hasSubmitSucceeded('symptoms')(state));
-  const { ml, pl } = useHeartAnalyze({});
-  console.log(ml, pl);
-  if (ml && ml.model) {
-    console.log(ml.model.summary());
-  }
+  const { analyze } = useHeartAnalyzer({});
 
   if (success) {
     return <Redirect to="/results" />;

@@ -6,13 +6,13 @@
       "label": "Age",
       "placeholder": "Age"
     },
-    "restingBloodPressure": {
-      "label": "Resting blood pressure",
-      "placeholder": "Resting blood pressure"
-    },
-    "cholesterol": {
-      "label": "Cholesterol",
-      "placeholder": "Cholesterol"
+    "sex": {
+      "label": "Sex",
+      "placeholder": "Sex",
+      "options": {
+        "male": "Male",
+        "female": "Female"
+      }
     },
     "chestPainType": {
       "label": "Chest pain type",
@@ -23,6 +23,35 @@
         "nonAnginalPain": "Non anginal pain",
         "asymptomatic": "Asymptomatic"
       }
+    },
+    "restingBloodPressure": {
+      "label": "Resting blood pressure",
+      "placeholder": "Resting blood pressure"
+    },
+    "cholesterol": {
+      "label": "Cholesterol",
+      "placeholder": "Cholesterol"
+    },
+    "fastingBloodSugar": {
+      "label": "Fasting blood sugar",
+      "placeholder": "Fasting blood sugar",
+      "options": {
+        "lower": "lower than 120mg/ml",
+        "greater": "greater than 120mg/ml"
+      }
+    },
+    "restEcg": {
+      "label": "Rest ECG",
+      "placeholder": "Rest ECG",
+      "options": {
+        "0": "normal",
+        "1": "ST-T wave abnormality",
+        "2": "left ventricular hypertrophy"
+      }
+    },
+    "maxHeartRateAchieved": {
+      "label": "Max heart rate achieved",
+      "placeholder": "Max heart rate achieved"
     },
     "stDepression": {
       "label": "ST depression",

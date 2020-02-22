@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import useAsyncEffect from 'use-async-effect';
+import * as tf from '@tensorflow/tfjs';
 import useModel from './use-model';
 
 const modelJsonFile = '';
@@ -14,7 +15,10 @@ export default (modelJson = modelJsonFile, data, options = {}) => {
       if (!data) return null;
       if (!isMounted()) return;
 
-      const modelPredictions = await model.predict({ feature: data });
+      const modelPredictions = await model.predict(
+        tf.tensor(data, [1, data.length]),
+      );
+      if (!isMounted()) return;
       setPredictions(modelPredictions);
     },
     [model, data, predictions],
