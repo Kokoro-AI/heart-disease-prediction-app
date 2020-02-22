@@ -10,7 +10,6 @@ const config = {
     path: commonPaths.outputServerPath,
     publicPath: '/',
   },
-  devtool: 'source-map',
   mode: 'production',
   plugins: [
     new TerserWebpackPlugin({

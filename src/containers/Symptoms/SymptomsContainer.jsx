@@ -11,8 +11,11 @@ const analyze = () => {};
 
 const SymptomsContainer = ({ translate }) => {
   const success = useSelector((state) => hasSubmitSucceeded('symptoms')(state));
-  const { ml, pl } = useHeartAnalyze([]);
+  const { ml, pl } = useHeartAnalyze({});
   console.log(ml, pl);
+  if (ml && ml.model) {
+    console.log(ml.model.summary());
+  }
 
   if (success) {
     return <Redirect to="/results" />;

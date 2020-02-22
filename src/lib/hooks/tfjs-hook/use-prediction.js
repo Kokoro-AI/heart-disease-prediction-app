@@ -17,7 +17,7 @@ export default (modelJson = modelJsonFile, data, options = {}) => {
       const modelPredictions = await model.predict({ feature: data });
       setPredictions(modelPredictions);
     },
-    [model, data],
+    [model, data, predictions],
   );
 
   return {
