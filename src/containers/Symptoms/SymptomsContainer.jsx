@@ -1,15 +1,27 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { hasSubmitSucceeded } from 'redux-form';
 import { Redirect } from 'react-router';
 import { Container, Header, Segment } from 'semantic-ui-react';
 
+import { storePredictions } from 'src/actions/disease';
 import { useHeartAnalyzer } from 'src/lib/hooks/heart-analyze-hook';
 import SymptomsFormContainer from 'src/containers/Symptoms/SymptomsFormContainer';
 
+const successSelector = (state) => hasSubmitSucceeded('symptoms')(state);
+
 const SymptomsContainer = ({ translate }) => {
-  const success = useSelector((state) => hasSubmitSucceeded('symptoms')(state));
+  const success = useSelector(successSelector, shallowEqual);
+  const dispatch = useDispatch();
   const { analyze } = useHeartAnalyzer({});
+
+  const onSubmit = (values) => {
+    const analysis = analyze(values);
+    dispatch(storePredictions({
+      symbols: values,
+      predictions: analysis,
+    }));
+  };
 
   if (success) {
     return <Redirect to="/results" />;
@@ -26,7 +38,7 @@ const SymptomsContainer = ({ translate }) => {
         </Header>
         <SymptomsFormContainer
           translate={(name, ...args) => translate(`symptoms:${name}`, ...args)}
-          onSubmit={analyze}
+          onSubmit={onSubmit}
         />
       </Segment>
     </Container>

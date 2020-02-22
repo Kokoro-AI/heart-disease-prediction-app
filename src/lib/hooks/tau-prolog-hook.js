@@ -15,8 +15,6 @@ export const useTauProlog = () => {
 
 export const useHeartAnalyzer = (options = {}) => {
   const { pl, query } = useTauProlog('kokoro.pl');
-  console.log('analyzing data...', options);
-  query('disease(p1)');
   return {
     pl: { model: pl, options },
     analyze: (data) => query(`${data}`),

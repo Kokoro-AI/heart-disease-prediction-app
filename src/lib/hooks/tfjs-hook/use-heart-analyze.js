@@ -15,7 +15,8 @@ export default (options = {}) => {
         return null;
       }
       const input = transformDataToModelInput(data);
-      return model.predict(tf.tensor(input, [1, input.length]));
+      const result = model.predict(tf.tensor2d([input], [1, input.length]));
+      return result.argMax().dataSync()[0];
     },
   };
 };
