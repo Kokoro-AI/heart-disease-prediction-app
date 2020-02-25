@@ -1,7 +1,15 @@
 {
   "form": {
     "title": "Heart disease prediction",
-    "subtitle": "Fill the fields and press 'Analyze'",
+    "subtitle": "Fill the form and press 'Analyze'",
+    "fullName": {
+      "label": "Full name",
+      "placeholder": "Full name"
+    },
+    "date": {
+      "label": "Analysis date",
+      "placeholder": "Analysis date"
+    },
     "age": {
       "label": "Age",
       "placeholder": "Age"
@@ -83,13 +91,6 @@
       "label": "Exercise induced angina",
       "placeholder": "Exercise induced angina"
     },
-    "submitButton": "Analyze",
-    "validators": {
-      "messages": {
-        "required": "Required field",
-        "positive": "The number must be positive",
-        "between": "The number must be between {{min}} and {{max}}"
-      }
-    }
+    "submitButton": "Analyze"
   }
 }

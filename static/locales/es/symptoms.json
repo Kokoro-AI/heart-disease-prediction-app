@@ -1,7 +1,15 @@
 {
   "form": {
     "title": "Predicción de enfermedades del corazón",
-    "subtitle": "Llene los campos con sus datos y presione 'Analizar'",
+    "subtitle": "Complete el formulario con sus datos y presione 'Analizar'",
+    "fullName": {
+      "label": "Nombre y apellido",
+      "placeholder": "Nombre y apellido"
+    },
+    "date": {
+      "label": "Fecha de analisis",
+      "placeholder": "Fecha de analisis"
+    },
     "age": {
       "label": "Edad",
       "placeholder": "Edad"
@@ -83,13 +91,6 @@
       "label": "Angina inducida por ejercicio",
       "placeholder": "Angina inducida por ejercicio"
     },
-    "submitButton": "Analizar",
-    "validators": {
-      "messages": {
-        "required": "El campo es requerido",
-        "positive": "El número debe ser positivo",
-        "between": "El número debe estar entre {{min}} y {{max}}"
-      }
-    }
+    "submitButton": "Analizar"
   }
 }

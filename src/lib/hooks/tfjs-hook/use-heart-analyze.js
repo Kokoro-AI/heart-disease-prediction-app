@@ -5,7 +5,7 @@ import useModel from './use-model';
 export default (options = {}) => {
   const model = useModel(MODEL_ARTIFACTS_URL, options);
 
-  const dataReducer = (data) => (input, header) => input.concat([data[header]]);
+  const dataReducer = (data) => (input, header) => input.concat([data[header] || 0]);
   const transformDataToModelInput = (data) => COLUMNS.reduce(dataReducer(data), []).map(Number);
 
   return {
@@ -16,7 +16,7 @@ export default (options = {}) => {
       }
       const input = transformDataToModelInput(data);
       const result = model.predict(tf.tensor2d([input], [1, input.length]));
-      return result.argMax().dataSync()[0];
+      return result.argMax().dataSync()[0] ? 'disease' : 'no-disease';
     },
   };
 };

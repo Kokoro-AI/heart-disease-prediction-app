@@ -1,26 +1,49 @@
 import React from 'react';
+import { Field } from 'redux-form';
 import {
   Button,
   Divider,
   Form,
   Grid,
 } from 'semantic-ui-react';
-import { Field } from 'redux-form';
 
 import {
   required,
   positive,
   between,
-} from 'src/lib/validations/symptoms';
+  date,
+} from 'src/lib/validations/common';
 
 import {
   renderInput,
   renderSelect,
   renderCheckbox,
+  renderDateInput,
 } from 'src/components/Form';
 
 const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
   <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form.Group>
+      <Field
+        required
+        width={8}
+        name="fullName"
+        label={translate('form.fullName.label')}
+        placeholder={translate('form.fullName.placeholder')}
+        component={renderInput}
+        validate={[required()]}
+      />
+      <Field
+        required
+        width={8}
+        name="date"
+        label={translate('form.date.label')}
+        placeholder={translate('form.date.placeholder')}
+        component={renderDateInput}
+        validate={[required(), date()]}
+      />
+    </Form.Group>
+    <Divider />
     <Form.Group>
       <Field
         required
@@ -177,7 +200,6 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
         component={renderCheckbox}
       />
     </Form.Group>
-    <Divider />
     <Grid>
       <Grid.Row>
         <Grid.Column textAlign="right">

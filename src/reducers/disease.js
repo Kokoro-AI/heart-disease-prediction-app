@@ -7,8 +7,7 @@ const mutations = {
   [DISEASE_PREDICTIONS_STORE](state, { symptoms, predictions }) {
     return {
       ...state,
-      symptoms,
-      predictions,
+      analysisHistory: [...state.analysisHistory, { symptoms, predictions }],
     };
   },
 };

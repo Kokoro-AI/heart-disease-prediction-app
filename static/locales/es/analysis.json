@@ -1,0 +1,18 @@
+{
+  "tfjs": {
+    "name": "Tensorflow JS",
+    "meta": "Medico especializado en inferencia estadística aplicado a enfermedades de corazón",
+    "description": {
+      "disease": "\"El diagnóstico es que el paciente presenta problemas de corazón.\"",
+      "no-disease": "\"El paciente no parece presentar problemas de corazón.\""
+    }
+  },
+  "pl": {
+    "name": "Tau Prolog",
+    "meta": "Médico experto en enfermedades de corazón",
+    "description": {
+      "disease": "\"El diagnóstico es que el paciente presenta problemas de corazón.\"",
+      "no-disease": "\"El paciente no parece presentar problemas de corazón.\""
+    }
+  }
+}

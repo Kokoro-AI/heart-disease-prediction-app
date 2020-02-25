@@ -24,7 +24,7 @@ i18n
     fallbackLng: 'en',
 
     // have a common namespace used around the full app
-    ns: ['symptoms'],
+    ns: ['symptoms', 'common', 'analysis'],
     defaultNS: 'translations',
 
     debug: process.env.NODE_ENV === 'development',

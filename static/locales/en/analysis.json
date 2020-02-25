@@ -1,0 +1,18 @@
+{
+  "tfjs": {
+    "name": "Tensorflow JS",
+    "goal": "Doctor specialized in statistical inference applied to heart disease",
+    "description": {
+      "disease": "\"The diagnosis is that the patient has heart problems. \"",
+      "no-disease": "\"The patient does not appear to have heart problems. \""
+    }
+  },
+  "pl": {
+    "name": "Tau Prolog",
+    "goal": "Medical expert in heart disease",
+    "description": {
+      "disease": "\"The diagnosis is that the patient has heart problems. \"",
+      "no-disease": "\"The patient does not appear to have heart problems. \""
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "validators": {
+    "messages": {
+      "required": "El campo es requerido",
+      "maximum": "El campo debe tener un máximo de {{max}} caracteres",
+      "minimum": "El campo debe tener como mínimo {{min}} caracteres",
+      "date": "El campo debe tener el formato `dd/mm/aaaa`",
+      "confirmation": "Debe tener el mismo valor que $t(common:{{field}})",
+      "between": "El número debe estar entre {{min}} y {{max}}",
+      "positive": "El número debe ser positivo"
+    }
+  }
+}

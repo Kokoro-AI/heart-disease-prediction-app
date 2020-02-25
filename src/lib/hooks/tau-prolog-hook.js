@@ -1,11 +1,15 @@
 export const useTauProlog = () => {
   const { pl } = window;
-
   const session = pl.create();
   session.consult('kokoro.pl');
 
-  const printAnswers = () => session.answers((x) => console.log(pl.format_answer(x)));
-  const query = (q) => { session.query(q); printAnswers(); };
+  const loadAnswer = () => session.answers((x) => x);
+  const query = (q) => {
+    session.query(q);
+    // TODO
+    const answer = loadAnswer();
+    return answer;
+  };
 
   return {
     pl: session,
@@ -17,7 +21,11 @@ export const useHeartAnalyzer = (options = {}) => {
   const { pl, query } = useTauProlog('kokoro.pl');
   return {
     pl: { model: pl, options },
-    analyze: (data) => query(`${data}`),
+    analyze: (data) => {
+      // FIXME this should be improved
+      const disease = query(`${data}`);
+      return disease ? 'disease' : 'no-disease';
+    },
   };
 };
 
