@@ -23,7 +23,7 @@ const config = {
         from: commonPaths.template,
         to: commonPaths.templatesOutputServerPath,
         transform: (content) => Buffer.from(
-          content.toString().replace(new RegExp('{{base}}', 'g'), '/'),
+          content.toString().replace(new RegExp('{{base}}', 'g'), '/heart-disease-prediction-app/'),
           'utf8',
         ),
       },
