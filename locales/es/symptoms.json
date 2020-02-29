@@ -1,0 +1,96 @@
+{
+  "form": {
+    "title": "Predicción de enfermedades del corazón",
+    "subtitle": "Complete el formulario con sus datos y presione 'Analizar'",
+    "fullName": {
+      "label": "Nombre y apellido",
+      "placeholder": "Nombre y apellido"
+    },
+    "date": {
+      "label": "Fecha de analisis",
+      "placeholder": "Fecha de analisis"
+    },
+    "age": {
+      "label": "Edad",
+      "placeholder": "Edad"
+    },
+    "sex": {
+      "label": "Sexo",
+      "placeholder": "Sexo",
+      "options": {
+        "male": "Masculino",
+        "female": "Femenino"
+      }
+    },
+    "chestPainType": {
+      "label": "Tipo de dolor de pecho",
+      "placeholder": "Tipo de dolor de pecho",
+      "options": {
+        "typicalAngina": "Angina típica",
+        "atypicalAngina": "Angina atípica",
+        "nonAnginalPain": "Dolor no anginal",
+        "asymptomatic": "Asintomático"
+      }
+    },
+    "restingBloodPressure": {
+      "label": "Presión arterial en reposo",
+      "placeholder": "Presión arterial en reposo"
+    },
+    "cholesterol": {
+      "label": "Colesterol",
+      "placeholder": "Colesterol"
+    },
+    "fastingBloodSugar": {
+      "label": "Glucemia en ayunas",
+      "placeholder": "Glucemia en ayunas",
+      "options": {
+        "lower": "Por debajo de 120mg/ml",
+        "greater": "Greater than 120mg/ml"
+      }
+    },
+    "restEcg": {
+      "label": "Rest ECG",
+      "placeholder": "Rest ECG",
+      "options": {
+        "0": "Normal",
+        "1": "Anormalidad de la onda ST-T",
+        "2": "Hipertrofia del ventrículo izquierdo"
+      }
+    },
+    "maxHeartRateAchieved": {
+      "label": "Frecuencia cardíaca máxima alcanzada",
+      "placeholder": "Frecuencia cardíaca máxima alcanzada"
+    },
+    "stDepression": {
+      "label": "Descenso ST",
+      "placeholder": "Descenso ST"
+    },
+    "stSlope": {
+      "label": "Pendiente ST",
+      "placeholder": "Pendiente ST",
+      "options": {
+        "upsloping": "Subida",
+        "flat": "Plana",
+        "downsloping": "Bajada"
+      }
+    },
+    "numMajorVessels": {
+      "label": "Número de vasos principales",
+      "placeholder": "Entre 0 y 3"
+    },
+    "thalassemia": {
+      "label": "Talasemia",
+      "placeholder": "Talasemia",
+      "options": {
+        "normal": "Normal",
+        "fixedDefect": "Defecto fijo",
+        "reversableDefect": "Defecto reversible"
+      }
+    },
+    "exerciseInducedAngina": {
+      "label": "Angina inducida por ejercicio",
+      "placeholder": "Angina inducida por ejercicio"
+    },
+    "submitButton": "Analizar"
+  }
+}
