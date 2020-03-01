@@ -14,7 +14,7 @@ import reducers from 'src/reducers';
 import DevTools from 'src/components/DevTools';
 
 export const history = createBrowserHistory({
-  basename: '/',
+  basename: '/heart-disease-prediction-app/',
 });
 
 const persistConfig = {

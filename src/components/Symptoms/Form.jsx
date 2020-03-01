@@ -21,12 +21,18 @@ import {
   renderDateInput,
 } from 'src/components/Form';
 
-const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
+const SymptomsForm = ({
+  translate,
+  onSubmit = () => {},
+  handleSubmit,
+  readOnly = false,
+}) => (
   <Form onSubmit={handleSubmit(onSubmit)}>
     <Form.Group>
       <Field
         required
         width={8}
+        inputProps={{ readOnly }}
         name="fullName"
         label={translate('form.fullName.label')}
         placeholder={translate('form.fullName.placeholder')}
@@ -36,6 +42,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
       <Field
         required
         width={8}
+        inputProps={{ readOnly }}
         name="date"
         label={translate('form.date.label')}
         placeholder={translate('form.date.placeholder')}
@@ -48,6 +55,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
       <Field
         required
         width={4}
+        inputProps={{ readOnly }}
         name="age"
         label={translate('form.age.label')}
         placeholder={translate('form.age.placeholder')}
@@ -58,6 +66,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
       <Field
         required
         width={4}
+        inputProps={{ readOnly }}
         name="sex"
         label={translate('form.sex.label')}
         placeholder={translate('form.sex.placeholder')}
@@ -74,7 +83,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
         label={translate('form.chestPainType.label')}
         placeholder={translate('form.chestPainType.placeholder')}
         component={renderSelect}
-        inputProps={{ clearable: true }}
+        inputProps={{ readOnly, clearable: true }}
         options={[
           { text: translate('form.chestPainType.options.typicalAngina'), value: '1' },
           { text: translate('form.chestPainType.options.atypicalAngina'), value: '2' },
@@ -85,6 +94,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
       <Field
         required
         width={4}
+        inputProps={{ readOnly }}
         name="restingBloodPressure"
         label={translate('form.restingBloodPressure.label')}
         placeholder={translate('form.restingBloodPressure.placeholder')}
@@ -97,6 +107,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
       <Field
         required
         width={4}
+        inputProps={{ readOnly }}
         name="cholesterol"
         label={translate('form.cholesterol.label')}
         placeholder={translate('form.cholesterol.placeholder')}
@@ -107,6 +118,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
       <Field
         required
         width={4}
+        inputProps={{ readOnly }}
         name="fastingBloodSugar"
         label={translate('form.fastingBloodSugar.label')}
         placeholder={translate('form.fastingBloodSugar.placeholder')}
@@ -120,6 +132,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
       <Field
         required
         width={4}
+        inputProps={{ readOnly }}
         name="restEcg"
         label={translate('form.restEcg.label')}
         placeholder={translate('form.restEcg.placeholder')}
@@ -134,6 +147,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
       <Field
         required
         width={4}
+        inputProps={{ readOnly }}
         name="maxHeartRateAchieved"
         label={translate('form.maxHeartRateAchieved.label')}
         placeholder={translate('form.maxHeartRateAchieved.placeholder')}
@@ -146,6 +160,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
       <Field
         required
         width={4}
+        inputProps={{ readOnly }}
         name="stDepression"
         label={translate('form.stDepression.label')}
         placeholder={translate('form.stDepression.placeholder')}
@@ -159,7 +174,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
         label={translate('form.stSlope.label')}
         placeholder={translate('form.stSlope.placeholder')}
         component={renderSelect}
-        inputProps={{ clearable: true }}
+        inputProps={{ readOnly, clearable: true }}
         options={[
           { text: translate('form.stSlope.options.upsloping'), value: '1' },
           { text: translate('form.stSlope.options.flat'), value: '2' },
@@ -169,6 +184,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
       <Field
         required
         width={4}
+        inputProps={{ readOnly }}
         name="numMajorVessels"
         label={translate('form.numMajorVessels.label')}
         placeholder={translate('form.numMajorVessels.placeholder')}
@@ -182,7 +198,7 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
         label={translate('form.thalassemia.label')}
         placeholder={translate('form.thalassemia.placeholder')}
         component={renderSelect}
-        inputProps={{ clearable: true }}
+        inputProps={{ readOnly, clearable: true }}
         options={[
           { text: translate('form.thalassemia.options.normal'), value: '1' },
           { text: translate('form.thalassemia.options.fixedDefect'), value: '2' },
@@ -197,21 +213,26 @@ const SymptomsForm = ({ translate, onSubmit, handleSubmit }) => (
         name="exerciseInducedAngina"
         label={translate('form.exerciseInducedAngina.label')}
         placeholder={translate('form.exerciseInducedAngina.placeholder')}
+        inputProps={{ readOnly }}
         component={renderCheckbox}
       />
     </Form.Group>
-    <Grid>
-      <Grid.Row>
-        <Grid.Column textAlign="right">
-          <Button
-            color="blue"
-            size="medium"
-          >
-            {translate('form.submitButton')}
-          </Button>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+    {
+      !readOnly && (
+        <Grid>
+          <Grid.Row>
+            <Grid.Column textAlign="right">
+              <Button
+                color="blue"
+                size="medium"
+              >
+                {translate('form.submitButton')}
+              </Button>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      )
+    }
   </Form>
 );
 

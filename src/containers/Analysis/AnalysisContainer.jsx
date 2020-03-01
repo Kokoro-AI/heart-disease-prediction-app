@@ -13,6 +13,7 @@ import {
 
 import Navbar from 'src/components/Layout/Navbar';
 import { Results, TfjsResult, PlResult } from 'src/components/Analysis';
+import SymptomsFormContainer from 'src/containers/Symptoms/SymptomsFormContainer';
 import { Redirect } from 'react-router';
 
 const analysisHistorySelector = (state) => state.disease.analysisHistory;
@@ -51,8 +52,15 @@ const SymptomsContainer = ({ translate }) => {
         translate={(name, ...args) => translate(`analysis:${name}`, ...args)}
       />
       <div className="container-content">
+        <Segment>
+          <SymptomsFormContainer
+            translate={(name, ...args) => translate(`symptoms:${name}`, ...args)}
+            initialValues={analysis.symptoms}
+            readOnly
+          />
+        </Segment>
         <Segment padded>
-          <Grid columns={2}>
+          <Grid columns={2} stackable>
             <Grid.Column width={10}>
               <List selection divided relaxed verticalAlign="middle">
                 {analysisHistory.map(({ symptoms, predictions }, i) => (
@@ -85,7 +93,7 @@ const SymptomsContainer = ({ translate }) => {
               </Results>
             </Grid.Column>
           </Grid>
-          <Divider vertical><Icon name="angle double right" color="blue" /></Divider>
+          <Responsive as={() => <Divider vertical><Icon name="angle double right" color="blue" /></Divider>} minWidth={500} />
         </Segment>
       </div>
     </>

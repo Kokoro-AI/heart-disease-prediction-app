@@ -28,7 +28,7 @@ const renderInput = ({
       value={input.value}
       placeholder={placeholder}
       type={type}
-      onChange={(e, { value }) => input.onChange(value)}
+      onChange={inputProps.readOnly ? undefined : (e, { value }) => input.onChange(value)}
     />
     <div>
       {touched

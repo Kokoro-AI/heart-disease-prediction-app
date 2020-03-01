@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Select } from 'semantic-ui-react';
+import { Form, Input, Select } from 'semantic-ui-react';
 
 const renderSelect = ({
   meta: { touched, error, warning },
@@ -22,20 +22,33 @@ const renderSelect = ({
     <label>
       {label}
     </label>
-    <Select
-      search
-      {...inputProps}
-      name={input.name}
-      value={input.value}
-      placeholder={placeholder}
-      options={options}
-      onChange={inputProps.readOnly ? undefined : (e, { value }) => input.onChange(value)}
-    />
-    <div>
-      {touched
-        && ((error && <span className="error">{error}</span>)
-          || (warning && <span className="warn">{warning}</span>))}
-    </div>
+    {
+      inputProps.readOnly ? (
+        <Input
+          {...inputProps}
+          name={input.name}
+          value={(options.find((e) => e.value === input.value) || {}).text}
+          placeholder={placeholder}
+        />
+      ) : (
+        <>
+          <Select
+            search
+            {...inputProps}
+            name={input.name}
+            value={input.value}
+            placeholder={placeholder}
+            options={options}
+            onChange={inputProps.readOnly ? undefined : (e, { value }) => input.onChange(value)}
+          />
+          <div>
+            {touched
+              && ((error && <span className="error">{error}</span>)
+                || (warning && <span className="warn">{warning}</span>))}
+          </div>
+        </>
+      )
+    }
   </Form.Field>
 );
 

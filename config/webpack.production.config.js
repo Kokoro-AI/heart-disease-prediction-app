@@ -4,11 +4,13 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 
 const commonPaths = require('./common-paths');
 
+const URL_BASE = 'https://kokoro-ai.github.io';
+
 const config = {
   output: {
     filename: 'bundle.js',
     path: commonPaths.outputServerPath,
-    publicPath: '/',
+    publicPath: '/heart-disease-prediction-app/',
   },
   mode: 'production',
   plugins: [
@@ -23,7 +25,10 @@ const config = {
         from: commonPaths.template,
         to: commonPaths.templatesOutputServerPath,
         transform: (content) => Buffer.from(
-          content.toString().replace(new RegExp('{{base}}', 'g'), '/heart-disease-prediction-app/'),
+          content
+            .toString()
+            .replace('<!-- base -->', `<base href="${URL_BASE}/">`)
+            .replace(new RegExp('{{base}}', 'g'), `${URL_BASE}/heart-disease-prediction-app/`),
           'utf8',
         ),
       },

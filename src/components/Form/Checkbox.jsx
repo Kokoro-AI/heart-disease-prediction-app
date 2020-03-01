@@ -1,7 +1,20 @@
 import React from 'react';
-import { Form } from 'semantic-ui-react';
+import { Form, Icon } from 'semantic-ui-react';
 
 const renderCheckbox = (field) => {
+  if (field.inputProps.readOnly) {
+    return (
+      <Form.Field>
+        <label>{field.label}</label>
+        {
+          field.input.value
+            ? <Icon name="check" color="green" />
+            : <Icon name="cancel" color="red" />
+        }
+      </Form.Field>
+    );
+  }
+
   if (field.labelPosition === 'top') {
     return (
       <Form.Field>
