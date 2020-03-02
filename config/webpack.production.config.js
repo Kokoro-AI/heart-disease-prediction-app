@@ -32,7 +32,7 @@ const config = {
           content
             .toString()
             .replace('<!-- base -->', `<base href="${URL_BASE}/">`)
-            .replace(new RegExp('{{base}}', 'g'), `${URL_BASE}/heart-disease-prediction-app`),
+            .replace(new RegExp('{{base}}', 'g'), `${URL_BASE}/heart-disease-prediction-app/`),
           'utf8',
         ),
       },
