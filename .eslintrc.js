@@ -60,5 +60,6 @@ module.exports = {
     "no-eval": "error",
     "react/jsx-props-no-spreading": 0,
     "global-require": 0,
+    "no-undef": 0,
   }
 }

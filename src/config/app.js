@@ -1,4 +1,4 @@
-export const MODEL_ARTIFACTS_URL = '/models/heart-tfjs-artifacts/model.json';
+export const MODEL_ARTIFACTS_URL = `${APP_BASE}/models/heart-tfjs-artifacts/model.json`;
 export const COLUMNS = [
   'age',
   'sex',

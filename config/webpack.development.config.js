@@ -22,6 +22,9 @@ const config = {
     public: URL_BASE,
   },
   plugins: [
+    new webpack.DefinePlugin({
+      APP_BASE: JSON.stringify(''),
+    }),
     new CopyWebpackPlugin([
       {
         from: commonPaths.template,

@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
@@ -14,6 +15,9 @@ const config = {
   },
   mode: 'production',
   plugins: [
+    new webpack.DefinePlugin({
+      APP_BASE: JSON.stringify('heart-disease-prediction-app'),
+    }),
     new TerserWebpackPlugin({
       sourceMap: true,
     }),
@@ -28,7 +32,7 @@ const config = {
           content
             .toString()
             .replace('<!-- base -->', `<base href="${URL_BASE}/">`)
-            .replace(new RegExp('{{base}}', 'g'), `${URL_BASE}/heart-disease-prediction-app/`),
+            .replace(new RegExp('{{base}}', 'g'), `${URL_BASE}/`),
           'utf8',
         ),
       },
