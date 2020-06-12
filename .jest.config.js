@@ -3,7 +3,7 @@ module.exports = {
   testRegex: '\\.test\\.js$',
   rootDir: '.',
   testPathIgnorePatterns: ['/node_modules/'],
-  setupFiles: ['<rootDir>/.enzyme.config.js'],
+  setupFiles: ['<rootDir>/config/jest/.enzyme.config.js'],
   modulePaths: [
     '<rootDir>/src',
   ],
@@ -15,4 +15,3 @@ module.exports = {
     "\\.(css|less)$": "<rootDir>/test/__mocks__/styleMock.js"
   }
 }
-  

@@ -1,10 +1,14 @@
-# heart-disease-prediction-app
+# Heart Disease Prediction App
+
+This project was generated using [React Webpack Starter](https://github.com/ulises-jeremias/react-webpack-starter).
 
 ## Development
 
+### Running the Project
+
 Start development environment running
 
-```bash
+```sh
 $ yarn start
 # or with npm
 $ npm run start
@@ -12,15 +16,29 @@ $ npm run start
 
 Start development environment with docker running
 
-```bash
+```sh
 $ yarn docker:dev
 # or with npm
 $ npm run docker:dev
 ```
 
-docker:dev generate a docker image named heart-disease-prediction-app and run it in a container
+`docker:dev` generate a docker image named heart-disease-prediction-app and run it in a container. Run `docker:dev:start` for only start a container without build a new docker image
 
-Run `docker:start` for only start a container without build a new docker image
+While developing, you will probably rely mostly on `yarn start`; however, there are additional scripts at your disposal:
+
+|`yarn <script>`                |Description|
+|-------------------------------|-----------|
+|`start`                        |Serves your app at `localhost:8091`|
+|`build:dev`                    |Builds the application to ./dist (_the build output dir could be configured in `./config/common-paths.js`_) |
+|`build:dev:watch`              |Builds the application and watch for changes|
+|`build:dev:analyze`            |Builds the application with Bundle Analyzer and Visualizer Plugins instaled|
+|`build:dev:dashboard`          |Builds the application with Dashboard|
+|`serve:dev:dashboard`          |Builds the application with Dashboard|
+|`test`                         |Runs unit tests with Jest. See [testing](#testing)|
+|`test:watch`                   |Runs `test` in watch mode to re-run tests when changed|
+|`lint`                         |[Lints](http://stackoverflow.com/questions/8503559/what-is-linting) the project for potential errors|
+|`lint:fix`                     |Lints the project and [fixes all correctable errors](http://eslint.org/docs/user-guide/command-line-interface.html#fix)|
+
 
 ### Hot Reloading
 
@@ -32,7 +50,7 @@ For **JavaScript** modules, a code change will trigger the application to re-ren
 
 Generate production files running
 
-```bash
+```sh
 $ yarn build:prod
 # or with npm
 $ npm run build:prod
@@ -40,7 +58,7 @@ $ npm run build:prod
 
 Generate and serve production files running
 
-```bash
+```sh
 $ yarn serve:prod
 # or with npm
 $ npm run serve:prod
@@ -50,24 +68,19 @@ $ npm run serve:prod
 
 ```
 .
-├── config                   # Webpack configuration
+├── config                   # Webpack and Jest configuration
 ├── public                   # Static public assets (not imported anywhere in source code)
-│   └── index.html           # Main HTML page container for app
+│   └── index.html           # Main HTML page template for app
 ├── src                      # Application source code
-|   ├── actions              # Redux actions
 │   ├── components           # Global Reusable Components
 │   ├── containers           # Global Reusable Container Components and pplication Layout in which to render routes
-|   ├── reducers             # Reducer registry and injection
 │   ├── routes               # Main route definitions and async split points
-│   │   └── app.js           # Bootstrap main application routes
-|   ├── state                # Store initial state
-│   ├── store.js             # Redux-specific pieces
+│   │   └── AppRoutes.jsx    # Bootstrap main application routes
 │   ├── styles               # Application-wide styles
-|   |   ├── custom           # Custom application styles
-|   |   └── semantic-ui      # Semantic-UI theme files
+|   |   └── custom           # Custom application styles
+|   ├── ...
 |   ├── i18n.js              # i18n configuration
-|   ├── index.js             # Application bootstrap and rendering with store
-|   └── store.js             # Create and instrument redux store
+|   ├── index.jsx            # Application bootstrap and rendering with store
 ├── static                   # Static public assets imported anywhere in source code
 └── test                     # Unit tests
 ```
@@ -76,3 +89,6 @@ $ npm run serve:prod
 
 To add a unit test, create a `.test.js` file anywhere inside of `./test`. Jest and webpack will automatically find these files.
 
+## More info
+
+You can learn more about the operation of this starter kit in the official [github repository](https://github.com/ulises-jeremias/react-webpack-starter).

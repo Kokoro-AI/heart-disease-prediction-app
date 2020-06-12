@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import logo from 'src-static/images/pl.png';
+import logo from 'app-static/images/pl.png';
 import Result from './Result';
 
 const PlResult = ({ translate, prediction, ...props }) => (

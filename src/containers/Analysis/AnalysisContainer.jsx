@@ -1,6 +1,8 @@
-import _ from 'underscore';
+import _ from 'lodash';
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { useSelector, shallowEqual } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import moment from 'moment-timezone';
 import {
   Grid,
@@ -11,15 +13,13 @@ import {
   Icon,
 } from 'semantic-ui-react';
 
-import Navbar from 'src/components/Layout/Navbar';
-import { Results, TfjsResult, PlResult } from 'src/components/Analysis';
-import SymptomsFormContainer from 'src/containers/Symptoms/SymptomsFormContainer';
-import { Redirect } from 'react-router';
+import SymptomsForm from 'app/components/Symptoms/Form';
+import Navbar from 'app/components/Layout/Navbar';
+import { Results, TfjsResult, PlResult } from 'app/components/Analysis';
+import { diseaseAnalysisHistory } from 'app/state';
 
-const analysisHistorySelector = (state) => state.disease.analysisHistory;
-
-const SymptomsContainer = ({ translate }) => {
-  const analysisHistory = useSelector(analysisHistorySelector, shallowEqual);
+const AnalysisContainer = ({ translate }) => {
+  const analysisHistory = useRecoilValue(diseaseAnalysisHistory);
 
   if (_.isEmpty(analysisHistory)) {
     return <Redirect to="/" />;
@@ -53,7 +53,7 @@ const SymptomsContainer = ({ translate }) => {
       />
       <div className="container-content">
         <Segment>
-          <SymptomsFormContainer
+          <SymptomsForm
             translate={(name, ...args) => translate(`symptoms:${name}`, ...args)}
             initialValues={analysis.symptoms}
             readOnly
@@ -100,4 +100,8 @@ const SymptomsContainer = ({ translate }) => {
   );
 };
 
-export default SymptomsContainer;
+AnalysisContainer.propTypes = {
+  translate: PropTypes.func.isRequired,
+};
+
+export default AnalysisContainer;

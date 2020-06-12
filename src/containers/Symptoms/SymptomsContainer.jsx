@@ -1,31 +1,22 @@
 import React from 'react';
-import { Redirect } from 'react-router';
-import { hasSubmitSucceeded } from 'redux-form';
-import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { useRecoilState } from 'recoil';
 import { Container, Header, Segment } from 'semantic-ui-react';
 
-import { storePredictions } from 'src/actions/disease';
-import { useHeartAnalyzer } from 'src/lib/hooks/heart-analyze-hook';
-import SymptomsFormContainer from 'src/containers/Symptoms/SymptomsFormContainer';
-
-const successSelector = (state) => hasSubmitSucceeded('symptoms')(state);
+import SymptomsForm from 'app/components/Symptoms/Form';
+import { useHeartAnalyzer } from 'app/hooks/heart-analyze-hook';
+import { diseaseAnalysisHistory } from 'app/state';
 
 const SymptomsContainer = ({ translate }) => {
-  const success = useSelector(successSelector, shallowEqual);
-  const dispatch = useDispatch();
   const { analyze } = useHeartAnalyzer();
+  const [analysisHistory, setAnalysisHistory] = useRecoilState(diseaseAnalysisHistory);
 
   const onSubmit = (values) => {
-    const analysis = analyze(values);
-    dispatch(storePredictions({
+    setAnalysisHistory([...analysisHistory, {
       symptoms: values,
-      predictions: analysis,
-    }));
+      predictions: analyze(values),
+    }]);
   };
-
-  if (success) {
-    return <Redirect to="/analysis" />;
-  }
 
   return (
     <Container style={{ paddingTop: 100 }}>
@@ -36,13 +27,17 @@ const SymptomsContainer = ({ translate }) => {
             {translate('symptoms:form.subtitle')}
           </Header.Subheader>
         </Header>
-        <SymptomsFormContainer
+        <SymptomsForm
           translate={(name, ...args) => translate(`symptoms:${name}`, ...args)}
           onSubmit={onSubmit}
         />
       </Segment>
     </Container>
   );
+};
+
+SymptomsContainer.propTypes = {
+  translate: PropTypes.func.isRequired,
 };
 
 export default SymptomsContainer;

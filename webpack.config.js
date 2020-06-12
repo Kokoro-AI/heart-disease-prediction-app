@@ -1,12 +1,19 @@
 const webpackMerge = require('webpack-merge');
-const commonConfig = require('./config/webpack.common.config');
 
-module.exports = (env, argv) => {
-  const determineAddons = (addons) => [...[addons]]
-    .filter((addon) => Boolean(addon))
-    .map((addon) => require(`./config/addons/webpack.${addon}.js`));
+const commonConfig = require('./config/webpack.common.js');
 
-  const envConfig = require(`./config/webpack.${argv.mode}.config`);
+const getAddons = addonsArgs => {
+  const addons = Array.isArray(addonsArgs)
+    ? addonsArgs
+    : [addonsArgs];
 
-  return webpackMerge(commonConfig, envConfig, ...determineAddons(argv.addons));
+  return addons
+    .filter(Boolean)
+    .map(name => require(`./config/addons/webpack.${name}.js`));
+};
+
+module.exports = ({ env, addon }) => {
+  const envConfig = require(`./config/webpack.${env || 'development'}.js`);
+
+  return webpackMerge(commonConfig, envConfig, ...getAddons(addon));
 };

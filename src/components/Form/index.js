@@ -1,16 +1,5 @@
-import renderDateInputComponent from './DateInput';
-import renderInputComponent from './Input';
-import renderSelectComponent from './Select';
-import renderCheckboxComponent from './Checkbox';
+import DatePickerComponent from './DatePicker';
 
-export const renderDateInput = renderDateInputComponent;
-export const renderInput = renderInputComponent;
-export const renderSelect = renderSelectComponent;
-export const renderCheckbox = renderCheckboxComponent;
+export const DatePicker = DatePickerComponent;
 
-export default {
-  renderDateInput,
-  renderInput,
-  renderSelect,
-  renderCheckbox,
-};
+export default { DatePicker };

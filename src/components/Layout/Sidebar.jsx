@@ -5,7 +5,6 @@ import {
   Header,
   Menu,
   Search,
-  Segment,
 } from 'semantic-ui-react';
 
 const LeftMenu = (props) => {
@@ -20,7 +19,7 @@ const LeftMenu = (props) => {
     results,
     searchValue,
     isFetching,
-    menuComponent,
+    options,
   } = props;
 
   return (
@@ -32,7 +31,7 @@ const LeftMenu = (props) => {
       size="large"
     >
       <Menu.Item className="section">
-        <Header as="h4">
+        <Header as="h4" style={{ opacity: 0.65 }}>
           Menu
         </Header>
         {
@@ -54,21 +53,15 @@ const LeftMenu = (props) => {
           )
         }
       </Menu.Item>
-      {menuComponent}
-      <Segment
-        style={{
-          borderRadius: 0,
-          position: 'absolute',
-          bottom: '55px',
-          width: '260px',
-          backgroundColor: 'transparent',
-        }}
-        padded
-        inverted
-      >
-        {translate('contact')}
-        <Icon color="green" name="whatsapp" />
-      </Segment>
+      {options.map(({ option }) => (
+        <Menu.Item
+          style={{ marginLeft: '25px' }}
+          key={option.id}
+        >
+          <Icon name="cog" size="tiny" style={{ marginRight: '5px' }} />
+          {option.text}
+        </Menu.Item>
+      ))}
     </Menu>
   );
 };
@@ -85,12 +78,14 @@ const Sidebar = (props) => {
     searchValue,
     isFetching,
     translate,
-    menuComponent,
+    searchbox,
+    options,
   } = props;
 
   return (
     <div id="sidebar">
       <LeftMenu
+        searchbox={searchbox}
         smallMenu={smallMenu}
         onSearchChange={onSearchChange}
         onSearchFocus={onSearchFocus}
@@ -100,9 +95,9 @@ const Sidebar = (props) => {
         isFetching={isFetching}
         searchValue={searchValue}
         translate={translate}
-        menuComponent={menuComponent}
+        options={options}
       />
-      <div className={`container-content ${smallMenu ? 'small-menu-content' : ''}`}>
+      <div className={`container-content ${smallMenu ? 'small-menu-content' : 'menu-content'}`}>
         {children}
       </div>
     </div>
@@ -116,6 +111,7 @@ LeftMenu.propTypes = {
   onResultSelect: PropTypes.func.isRequired,
   resultRenderer: PropTypes.func.isRequired,
   smallMenu: PropTypes.bool.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   results: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -124,24 +120,40 @@ LeftMenu.propTypes = {
   ).isRequired,
   searchValue: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
+  searchbox: PropTypes.bool.isRequired,
+};
+
+Sidebar.defaultProps = {
+  children: null,
+  smallMenu: false,
+  onSearchChange: () => null,
+  onSearchFocus: () => null,
+  onResultSelect: () => null,
+  resultRenderer: () => null,
+  results: [],
+  searchValue: '',
+  isFetching: false,
+  searchbox: false,
 };
 
 Sidebar.propTypes = {
   translate: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
-  smallMenu: PropTypes.bool.isRequired,
-  onSearchChange: PropTypes.func.isRequired,
-  onSearchFocus: PropTypes.func.isRequired,
-  onResultSelect: PropTypes.func.isRequired,
-  resultRenderer: PropTypes.func.isRequired,
+  children: PropTypes.node,
+  smallMenu: PropTypes.bool,
+  onSearchChange: PropTypes.func,
+  onSearchFocus: PropTypes.func,
+  onResultSelect: PropTypes.func,
+  resultRenderer: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   results: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
     }),
-  ).isRequired,
-  searchValue: PropTypes.string.isRequired,
-  isFetching: PropTypes.bool.isRequired,
+  ),
+  searchValue: PropTypes.string,
+  isFetching: PropTypes.bool,
+  searchbox: PropTypes.bool,
 };
 
 export default Sidebar;

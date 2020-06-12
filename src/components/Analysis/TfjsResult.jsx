@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import logo from 'src-static/images/tf.png';
+import logo from 'app-static/images/tf.png';
 import Result from './Result';
 
 const TfjsResult = ({ translate, prediction, ...props }) => (
