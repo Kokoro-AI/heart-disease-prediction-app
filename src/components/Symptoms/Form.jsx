@@ -111,15 +111,15 @@ const SymptomsForm = (props) => {
           }}
         />
         <Dropdown
-          name="chestPainType"
-          label={translate('form.chestPainType.label')}
+          name="fastingBloodSugar"
+          label={translate('form.fastingBloodSugar.label')}
           options={[
             { text: translate('form.fastingBloodSugar.options.lower'), value: '0' },
             { text: translate('form.fastingBloodSugar.options.greater'), value: '1' },
           ]}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.chestPainType.placeholder'),
+            placeholder: translate('form.fastingBloodSugar.placeholder'),
             readOnly,
           }}
         />
