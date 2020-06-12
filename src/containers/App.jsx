@@ -13,7 +13,7 @@ import 'app/i18n';
 const App = () => (
   <RecoilRoot>
     <Suspense fallback={<Loading />}>
-      <BrowserRouter basename={APP_ROUTE}>
+      <BrowserRouter basename={APP_BASE}>
         <I18n ns="translations">
           {
             (t, { i18n }) => (
