@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { RecoilRoot } from 'recoil';
 import { I18n } from 'react-i18next';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import 'app/styles/custom/main.less';
 
@@ -13,7 +13,7 @@ import 'app/i18n';
 const App = () => (
   <RecoilRoot>
     <Suspense fallback={<Loading />}>
-      <HashRouter>
+      <BrowserRouter basename={APP_ROUTE}>
         <I18n ns="translations">
           {
             (t, { i18n }) => (
@@ -21,7 +21,7 @@ const App = () => (
             )
           }
         </I18n>
-      </HashRouter>
+      </BrowserRouter>
     </Suspense>
   </RecoilRoot>
 );
