@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { useTranslation } from 'react-i18next';
 import {
   Divider,
   Grid,
@@ -18,30 +18,28 @@ import { symptomsFormValidation } from 'app/validations';
 import { DatePicker } from 'app/components/Form';
 
 const SymptomsForm = (props) => {
-  const {
-    translate,
-    onSubmit,
-    readOnly,
-  } = props;
+  const { onSubmit, readOnly } = props;
+
+  const { t } = useTranslation('symptoms');
 
   return (
-    <Form onSubmit={onSubmit} validationSchema={symptomsFormValidation}>
+    <Form onSubmit={onSubmit} validationSchema={symptomsFormValidation()}>
       <Form.Group>
         <Input
           name="fullName"
-          label={translate('form.fullName.label')}
+          label={t('form.fullName.label')}
           fieldProps={{ required: true, width: 8 }}
           inputProps={{
-            placeholder: translate('form.fullName.placeholder'),
+            placeholder: t('form.fullName.placeholder'),
             readOnly,
           }}
         />
         <DatePicker
           name="date"
-          label={translate('form.date.label')}
+          label={t('form.date.label')}
           fieldProps={{ required: true, width: 8 }}
           inputProps={{
-            placeholder: translate('form.date.placeholder'),
+            placeholder: t('form.date.placeholder'),
             displayFormat: 'DD/MM/YYYY',
             readOnly,
           }}
@@ -51,49 +49,49 @@ const SymptomsForm = (props) => {
       <Form.Group>
         <Input
           name="age"
-          label={translate('form.age.label')}
+          label={t('form.age.label')}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.age.placeholder'),
+            placeholder: t('form.age.placeholder'),
             type: 'number',
             readOnly,
           }}
         />
         <Dropdown
           name="sex"
-          label={translate('form.sex.label')}
+          label={t('form.sex.label')}
           options={[
-            { text: translate('form.sex.options.female'), value: '0' },
-            { text: translate('form.sex.options.male'), value: '1' },
+            { text: t('form.sex.options.female'), value: '0' },
+            { text: t('form.sex.options.male'), value: '1' },
           ]}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.sex.placeholder'),
+            placeholder: t('form.sex.placeholder'),
             readOnly,
           }}
         />
         <Dropdown
           name="chestPainType"
-          label={translate('form.chestPainType.label')}
+          label={t('form.chestPainType.label')}
           options={[
-            { text: translate('form.chestPainType.options.typicalAngina'), value: '1' },
-            { text: translate('form.chestPainType.options.atypicalAngina'), value: '2' },
-            { text: translate('form.chestPainType.options.nonAnginalPain'), value: '3' },
-            { text: translate('form.chestPainType.options.asymptomatic'), value: '4' },
+            { text: t('form.chestPainType.options.typicalAngina'), value: '1' },
+            { text: t('form.chestPainType.options.atypicalAngina'), value: '2' },
+            { text: t('form.chestPainType.options.nonAnginalPain'), value: '3' },
+            { text: t('form.chestPainType.options.asymptomatic'), value: '4' },
           ]}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.chestPainType.placeholder'),
+            placeholder: t('form.chestPainType.placeholder'),
             clearable: true,
             readOnly,
           }}
         />
         <Input
           name="restingBloodPressure"
-          label={translate('form.restingBloodPressure.label')}
+          label={t('form.restingBloodPressure.label')}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.restingBloodPressure.placeholder'),
+            placeholder: t('form.restingBloodPressure.placeholder'),
             type: 'number',
             readOnly,
           }}
@@ -102,47 +100,47 @@ const SymptomsForm = (props) => {
       <Form.Group>
         <Input
           name="cholesterol"
-          label={translate('form.cholesterol.label')}
+          label={t('form.cholesterol.label')}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.cholesterol.placeholder'),
+            placeholder: t('form.cholesterol.placeholder'),
             type: 'number',
             readOnly,
           }}
         />
         <Dropdown
           name="fastingBloodSugar"
-          label={translate('form.fastingBloodSugar.label')}
+          label={t('form.fastingBloodSugar.label')}
           options={[
-            { text: translate('form.fastingBloodSugar.options.lower'), value: '0' },
-            { text: translate('form.fastingBloodSugar.options.greater'), value: '1' },
+            { text: t('form.fastingBloodSugar.options.lower'), value: '0' },
+            { text: t('form.fastingBloodSugar.options.greater'), value: '1' },
           ]}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.fastingBloodSugar.placeholder'),
+            placeholder: t('form.fastingBloodSugar.placeholder'),
             readOnly,
           }}
         />
         <Dropdown
           name="restEcg"
-          label={translate('form.restEcg.label')}
+          label={t('form.restEcg.label')}
           options={[
-            { text: translate('form.restEcg.options.0'), value: '0' },
-            { text: translate('form.restEcg.options.1'), value: '1' },
-            { text: translate('form.restEcg.options.2'), value: '2' },
+            { text: t('form.restEcg.options.0'), value: '0' },
+            { text: t('form.restEcg.options.1'), value: '1' },
+            { text: t('form.restEcg.options.2'), value: '2' },
           ]}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.restEcg.placeholder'),
+            placeholder: t('form.restEcg.placeholder'),
             readOnly,
           }}
         />
         <Input
           name="maxHeartRateAchieved"
-          label={translate('form.maxHeartRateAchieved.label')}
+          label={t('form.maxHeartRateAchieved.label')}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.maxHeartRateAchieved.placeholder'),
+            placeholder: t('form.maxHeartRateAchieved.placeholder'),
             type: 'number',
             readOnly,
           }}
@@ -151,50 +149,50 @@ const SymptomsForm = (props) => {
       <Form.Group>
         <Input
           name="stDepression"
-          label={translate('form.stDepression.label')}
+          label={t('form.stDepression.label')}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.stDepression.placeholder'),
+            placeholder: t('form.stDepression.placeholder'),
             type: 'number',
             readOnly,
           }}
         />
         <Dropdown
           name="stSlope"
-          label={translate('form.stSlope.label')}
+          label={t('form.stSlope.label')}
           options={[
-            { text: translate('form.stSlope.options.upsloping'), value: '1' },
-            { text: translate('form.stSlope.options.flat'), value: '2' },
-            { text: translate('form.stSlope.options.downsloping'), value: '3' },
+            { text: t('form.stSlope.options.upsloping'), value: '1' },
+            { text: t('form.stSlope.options.flat'), value: '2' },
+            { text: t('form.stSlope.options.downsloping'), value: '3' },
           ]}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.stSlope.placeholder'),
+            placeholder: t('form.stSlope.placeholder'),
             clearable: true,
             readOnly,
           }}
         />
         <Input
           name="numMajorVessels"
-          label={translate('form.numMajorVessels.label')}
+          label={t('form.numMajorVessels.label')}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.numMajorVessels.placeholder'),
+            placeholder: t('form.numMajorVessels.placeholder'),
             type: 'number',
             readOnly,
           }}
         />
         <Dropdown
           name="thalassemia"
-          label={translate('form.thalassemia.label')}
+          label={t('form.thalassemia.label')}
           options={[
-            { text: translate('form.thalassemia.options.normal'), value: '1' },
-            { text: translate('form.thalassemia.options.fixedDefect'), value: '2' },
-            { text: translate('form.thalassemia.options.reversableDefect'), value: '3' },
+            { text: t('form.thalassemia.options.normal'), value: '1' },
+            { text: t('form.thalassemia.options.fixedDefect'), value: '2' },
+            { text: t('form.thalassemia.options.reversableDefect'), value: '3' },
           ]}
           fieldProps={{ required: true, width: 4 }}
           inputProps={{
-            placeholder: translate('form.thalassemia.placeholder'),
+            placeholder: t('form.thalassemia.placeholder'),
             clearable: true,
             readOnly,
           }}
@@ -204,9 +202,9 @@ const SymptomsForm = (props) => {
       <Form.Group>
         <Checkbox
           name="exerciseInducedAngina"
-          label={translate('form.exerciseInducedAngina.label')}
+          label={t('form.exerciseInducedAngina.label')}
           inputProps={{
-            placeholder: translate('form.exerciseInducedAngina.placeholder'),
+            placeholder: t('form.exerciseInducedAngina.placeholder'),
             toggle: true,
             readOnly,
           }}
@@ -221,7 +219,7 @@ const SymptomsForm = (props) => {
                   color="blue"
                   size="medium"
                 >
-                  {translate('form.submitButton')}
+                  {t('form.submitButton')}
                 </Button.Submit>
               </Grid.Column>
             </Grid.Row>
@@ -237,7 +235,6 @@ SymptomsForm.defaultProps = {
 };
 
 SymptomsForm.propTypes = {
-  translate: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   readOnly: PropTypes.bool,
 };

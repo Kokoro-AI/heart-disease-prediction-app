@@ -1,21 +1,25 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import logo from 'app-static/images/pl.png';
 import Result from './Result';
 
-const PlResult = ({ translate, prediction, ...props }) => (
-  <Result
-    {...props}
-    logo={logo}
-    name={translate('pl.name')}
-    meta={translate('pl.meta')}
-    description={translate(`pl.description.${prediction}`)}
-  />
-);
+const PlResult = ({ prediction, ...props }) => {
+  const { t } = useTranslation('analysis');
+
+  return (
+    <Result
+      {...props}
+      logo={logo}
+      name={t('pl.name')}
+      meta={t('pl.meta')}
+      description={t(`pl.description.${prediction}`)}
+    />
+  );
+};
 
 PlResult.propTypes = {
-  translate: PropTypes.func.isRequired,
   prediction: PropTypes.oneOf([
     'disease',
     'no-disease',

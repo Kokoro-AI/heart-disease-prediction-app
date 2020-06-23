@@ -1,17 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { useHistory } from 'react-router-dom';
-import { Container, Header, Segment } from 'semantic-ui-react';
+import { useTranslation } from 'react-i18next';
+import { Header, Segment, Responsive } from 'semantic-ui-react';
 
 import SymptomsForm from 'app/components/Symptoms/Form';
+import Navbar from 'app/components/Layout/Navbar';
 import { useHeartAnalyzer } from 'app/hooks/heart-analyze-hook';
 import { diseaseAnalysisHistory } from 'app/state';
 
-const SymptomsContainer = ({ translate }) => {
+import kokoroLogo from 'app-static/images/kokoro.png';
+
+const SymptomsContainer = () => {
+  const [smallMenu, setSmallMenu] = useState(false);
+  const [previousWidth, setPreviousWidth] = useState(null);
+
   const history = useHistory();
+  const { t } = useTranslation('symptoms');
   const { analyze } = useHeartAnalyzer();
   const [analysisHistory, setAnalysisHistory] = useRecoilState(diseaseAnalysisHistory);
+
+  const navbarOptions = [{
+    icon: 'list ol',
+    to: '/analysis',
+    name: 'analysis',
+    text: t('options.analysis'),
+  }];
 
   const onSubmit = (values, formikApi) => {
     setAnalysisHistory([...analysisHistory, {
@@ -23,25 +37,43 @@ const SymptomsContainer = ({ translate }) => {
   };
 
   return (
-    <Container style={{ paddingTop: 100 }}>
-      <Segment>
-        <Header as="h2">
-          {translate('symptoms:form.title')}
-          <Header.Subheader>
-            {translate('symptoms:form.subtitle')}
-          </Header.Subheader>
-        </Header>
-        <SymptomsForm
-          translate={(name, ...args) => translate(`symptoms:${name}`, ...args)}
-          onSubmit={onSubmit}
-        />
-      </Segment>
-    </Container>
+    <>
+      <Responsive
+        fireOnMount
+        onUpdate={(e, { width }) => {
+          if (width !== previousWidth) {
+            setPreviousWidth(width);
+            setSmallMenu(width < 976);
+          }
+        }}
+      />
+      <Navbar
+        user={{}}
+        logo={kokoroLogo}
+        smallMenu={smallMenu}
+        showTitle
+        showOptionText
+        showProfilePath={false}
+        translate={t}
+        options={navbarOptions}
+        onChangeSizeButtonClick={() => setSmallMenu(!smallMenu)}
+      />
+      <div className="container-content">
+        <Segment>
+          <Header as="h2">
+            {t('form.title')}
+            <Header.Subheader>
+              {t('form.subtitle')}
+            </Header.Subheader>
+          </Header>
+          <SymptomsForm onSubmit={onSubmit} />
+        </Segment>
+      </div>
+    </>
   );
 };
 
 SymptomsContainer.propTypes = {
-  translate: PropTypes.func.isRequired,
 };
 
 export default SymptomsContainer;

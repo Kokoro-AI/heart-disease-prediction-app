@@ -32,7 +32,7 @@ class Navbar extends Component {
     } = this.props;
 
     return (
-      <Menu id="navbar" color={color || 'orange'} inverted={inverted} fixed="top" borderless>
+      <Menu id="navbar" color={color || 'blue'} inverted={inverted} fixed="top" borderless>
         <Menu.Item>
           <Breadcrumb className="navbar-title" size="large">
             {sidebar && (
@@ -40,7 +40,7 @@ class Navbar extends Component {
                 <Icon
                   link
                   style={{ marginRight: '17px' }}
-                  color={color || 'orange'}
+                  color={color || 'blue'}
                   inverted={inverted}
                   name={smallMenu ? 'indent' : 'outdent'}
                   onClick={onChangeSizeButtonClick}
@@ -69,7 +69,7 @@ class Navbar extends Component {
                     active={active === name}
                   >
                     {_.isString(icon) ? (
-                      <Icon name={icon} inverted={inverted} color={color || 'orange'} size="large" />
+                      <Icon name={icon} inverted={inverted} color={color || 'blue'} size="large" />
                     ) : icon}
                   </Menu.Item>
                 ))
@@ -88,7 +88,7 @@ class Navbar extends Component {
                 active={active === option.name}
               >
                 {_.isString(option.icon) ? (
-                  <Icon name={option.icon} inverted={inverted} color={color || 'orange'} size="large" />
+                  <Icon name={option.icon} inverted={inverted} color={color || 'blue'} size="large" />
                 ) : option.icon}
                 {showOptionText && option.text}
               </Menu.Item>
@@ -96,13 +96,13 @@ class Navbar extends Component {
           )}
           {showProfile && (
             <Menu.Item as={Link} to="/profile">
-              <Icon name="user" inverted={inverted} color={color || 'orange'} size="large" />
+              <Icon name="user" inverted={inverted} color={color || 'blue'} size="large" />
               {showOptionText && user.fullName}
             </Menu.Item>
           )}
           {showLogout && (
             <Menu.Item as={Link} to="/logout">
-              <Icon name="log out" inverted={inverted} color={color || 'orange'} size="large" />
+              <Icon name="log out" inverted={inverted} color={color || 'blue'} size="large" />
               {showOptionText && translate('logout')}
             </Menu.Item>
           )}
@@ -130,12 +130,12 @@ class Navbar extends Component {
     } = this.props;
 
     return (
-      <Menu id="navbar" color={color || 'orange'} inverted={inverted} fixed="top" fluid widths={3} borderless>
+      <Menu id="navbar" color={color || 'blue'} inverted={inverted} fixed="top" fluid widths={3} borderless>
         <Menu.Item>
           {sidebar && (
             <Icon
               link
-              color={color || 'orange'}
+              color={color || 'blue'}
               inverted={inverted}
               name={smallMenu ? 'indent' : 'outdent'}
               style={{ zIndex: 2001 }}
@@ -159,7 +159,7 @@ class Navbar extends Component {
                   active={active === option.name}
                 >
                   {_.isString(option.icon) ? (
-                    <Icon name={option.icon} color={color || 'orange'} inverted={inverted} size="large" />
+                    <Icon name={option.icon} color={color || 'blue'} inverted={inverted} size="large" />
                   ) : option.icon}
                   {option.description}
                 </Dropdown.Item>
@@ -168,7 +168,7 @@ class Navbar extends Component {
               {showProfile && (
                 <Dropdown.Item as={Link} to="/profile">
                   <span>
-                    <Icon name="user" size="large" color={color || 'orange'} inverted={inverted} />
+                    <Icon name="user" size="large" color={color || 'blue'} inverted={inverted} />
                     {user.fullName}
                   </span>
                 </Dropdown.Item>
@@ -176,7 +176,7 @@ class Navbar extends Component {
               {showLogout && (
                 <Dropdown.Item as={Link} to="/logout">
                   <span>
-                    <Icon name="log out" color={color || 'orange'} inverted={inverted} />
+                    <Icon name="log out" color={color || 'blue'} inverted={inverted} />
                     {translate('logout')}
                   </span>
                 </Dropdown.Item>
@@ -204,7 +204,7 @@ class Navbar extends Component {
 
 Navbar.defaultProps = {
   onChangeSizeButtonClick: null,
-  color: 'orange',
+  color: 'blue',
   sidebar: false,
   smallMenu: true,
   options: [],

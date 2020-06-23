@@ -7,8 +7,8 @@ import SymptomsContainer from 'app/containers/Symptoms';
 
 const AppRoutes = (props) => (
   <Switch>
-    <Route exact path="/" component={SymptomsContainer} {...props} />
-    <Route path="/analysis" component={AnalysisContainer} {...props} />
+    <Route exact path="/" title="symptoms" component={SymptomsContainer} {...props} />
+    <Route path="/analysis" title="analysis" component={AnalysisContainer} {...props} />
   </Switch>
 );
 

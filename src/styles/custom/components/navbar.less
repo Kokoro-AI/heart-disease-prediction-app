@@ -1,22 +1,22 @@
 #navbar {
-  height: @navbarHeight !important;
+  height: @navbarHeight  !important;
   box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.315) !important;
   z-index: 2001 !important;
 
   .image {
     margin-left: 2.5rem;
-    width: calc(@navbarHeight ~" * 2") !important;
+    width: calc(@navbarHeight ~" * 1.0") !important;
   }
 
   .image.mobile {
     margin-left: 0 !important;
     height: auto !important;
-    width: calc(@navbarHeight ~" * 2,8") !important;
+    width: calc(@navbarHeight ~" * 1.2") !important;
   }
 
   .navbar-title {
     .title-divider {
-      margin-left: calc(~"13.85rem -" @navbarHeight ~" * 3.2");
+      margin-left: calc(~"13.85rem -"@navbarHeight ~" * 3.2");
     }
   }
 
@@ -26,7 +26,7 @@
 }
 
 .container-content {
-  margin-top: @navbarHeight !important;
+  margin-top: @navbarHeight  !important;
   padding: 17px;
   transition: all 0.3s;
   width: "100%";

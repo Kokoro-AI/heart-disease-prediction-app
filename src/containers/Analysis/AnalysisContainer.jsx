@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
+import { useTranslation } from 'react-i18next';
 import moment from 'moment-timezone';
 import {
   Grid,
@@ -18,7 +18,9 @@ import Navbar from 'app/components/Layout/Navbar';
 import { Results, TfjsResult, PlResult } from 'app/components/Analysis';
 import { diseaseAnalysisHistory } from 'app/state';
 
-const AnalysisContainer = ({ translate }) => {
+import kokoroLogo from 'app-static/images/kokoro.png';
+
+const AnalysisContainer = () => {
   const analysisHistory = useRecoilValue(diseaseAnalysisHistory);
 
   if (_.isEmpty(analysisHistory)) {
@@ -28,8 +30,16 @@ const AnalysisContainer = ({ translate }) => {
   const [analysis, setAnalysis] = useState(_.first(analysisHistory));
   const [smallMenu, setSmallMenu] = useState(false);
   const [previousWidth, setPreviousWidth] = useState(null);
+  const { t } = useTranslation('analysis');
 
   const { predictions: analysisPredictions } = analysis;
+
+  const navbarOptions = [{
+    icon: 'list ol',
+    to: '/analysis',
+    name: 'analysis',
+    text: t('options.analysis'),
+  }];
 
   return (
     <>
@@ -44,17 +54,19 @@ const AnalysisContainer = ({ translate }) => {
       />
       <Navbar
         user={{}}
-        logo={null}
+        logo={kokoroLogo}
         smallMenu={smallMenu}
         showTitle
+        showOptionText
         showProfilePath={false}
+        translate={t}
+        active="analysis"
+        options={navbarOptions}
         onChangeSizeButtonClick={() => setSmallMenu(!smallMenu)}
-        translate={(name, ...args) => translate(`analysis:${name}`, ...args)}
       />
       <div className="container-content">
         <Segment>
           <SymptomsForm
-            translate={(name, ...args) => translate(`symptoms:${name}`, ...args)}
             initialValues={analysis.symptoms}
             readOnly
           />
@@ -82,26 +94,27 @@ const AnalysisContainer = ({ translate }) => {
               <Results>
                 <TfjsResult
                   fluid
-                  translate={(name, ...args) => translate(`analysis:${name}`, ...args)}
                   prediction={analysisPredictions.mlPrediction}
                 />
                 <PlResult
                   fluid
-                  translate={(name, ...args) => translate(`analysis:${name}`, ...args)}
                   prediction={analysisPredictions.plPrediction}
                 />
               </Results>
             </Grid.Column>
           </Grid>
-          <Responsive as={() => <Divider vertical><Icon name="angle double right" color="blue" /></Divider>} minWidth={500} />
+          <Responsive
+            as={() => (
+              <Divider vertical>
+                <Icon name="angle double right" color="blue" />
+              </Divider>
+            )}
+            minWidth={500}
+          />
         </Segment>
       </div>
     </>
   );
-};
-
-AnalysisContainer.propTypes = {
-  translate: PropTypes.func.isRequired,
 };
 
 export default AnalysisContainer;
