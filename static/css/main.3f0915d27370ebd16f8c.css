@@ -53508,36 +53508,36 @@ html.ios body {
 /*---  Dark Tones  ---*/
 /*---  Light Tones  ---*/
 #navbar {
-  height: 45px !important;
+  height: 65px !important;
   box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.315) !important;
   z-index: 2001 !important;
 }
 #navbar .image {
   margin-left: 2.5rem;
-  width: calc(45px  * 2) !important;
+  width: calc(65px  * 1.0) !important;
 }
 #navbar .image.mobile {
   margin-left: 0 !important;
   height: auto !important;
-  width: calc(45px  * 2,8) !important;
+  width: calc(65px  * 1.2) !important;
 }
 #navbar .navbar-title .title-divider {
-  margin-left: calc(13.85rem - 45px  * 3.2);
+  margin-left: calc(13.85rem - 65px  * 3.2);
 }
 #navbar .icon.corner {
   font-size: 0.45em !important;
 }
 .container-content {
-  margin-top: 45px !important;
+  margin-top: 65px !important;
   padding: 17px;
   width: "100%";
   transition: all 0.3s;
-  min-height: calc(100% -  45px );
+  min-height: calc(100% -  65px );
 }
 #sidebar .left-menu {
   background-color: #2185D0 !important;
   color: #fff;
-  margin-top: 45px !important;
+  margin-top: 65px !important;
   transition: width 0.3s;
 }
 #sidebar .left-menu h4 {
@@ -53578,11 +53578,11 @@ html.ios body {
   background-color: #d1cfcf !important;
   position: absolute;
   right: 0;
-  margin-top: 45px !important;
+  margin-top: 65px !important;
   padding: 17px;
   width: calc(100% - 18em);
   transition: all 0.3s;
-  min-height: calc(100% -  45px );
+  min-height: calc(100% -  65px );
 }
 #sidebar .container-content .container h4 {
   font-size: 20px !important;
@@ -53598,6 +53598,9 @@ html.ios body {
 body {
   background-color: #2185D0 !important;
   background: linear-gradient(90deg, #050053 0%, #6473f1 0%, rgba(19, 185, 219, 0.97522759) 100%);
+}
+#app {
+  height: 100%;
 }
 .ui.form .error span {
   color: #DB2828 !important;

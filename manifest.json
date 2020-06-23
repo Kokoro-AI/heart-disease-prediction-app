@@ -1,8 +1,8 @@
 {
-  "main.css": "/heart-disease-prediction-app/static/css/main.d112a377924475b0d773.css",
-  "main.js": "/heart-disease-prediction-app/static/js/main.6c488ded.bundle.js",
-  "vendors~main.css": "/heart-disease-prediction-app/static/css/1.d112a377924475b0d773.css",
-  "vendors~main.js": "/heart-disease-prediction-app/static/js/vendors~main.9c07aa5d.js",
+  "main.css": "/heart-disease-prediction-app/static/css/main.3f0915d27370ebd16f8c.css",
+  "main.js": "/heart-disease-prediction-app/static/js/main.99f588a9.bundle.js",
+  "vendors~main.css": "/heart-disease-prediction-app/static/css/1.3f0915d27370ebd16f8c.css",
+  "vendors~main.js": "/heart-disease-prediction-app/static/js/vendors~main.8e3527b3.js",
   "favicon.ico": "/heart-disease-prediction-app/favicon.ico",
   "index.html": "/heart-disease-prediction-app/index.html",
   "locales/en/analysis.json": "/heart-disease-prediction-app/locales/en/analysis.json",
@@ -18,7 +18,8 @@
   "models/pl/kokoro.pl": "/heart-disease-prediction-app/models/pl/kokoro.pl",
   "models/pl/tau-prolog.js": "/heart-disease-prediction-app/models/pl/tau-prolog.js",
   "static/fonts/main.less": "/heart-disease-prediction-app/static/fonts/icons.fb685a7c7e4aae2d4d7117d94e573329.woff2",
+  "static/fonts/kokoro.png": "/heart-disease-prediction-app/static/fonts/kokoro.a1a35de18ed761f83428ea587c66b6f0.png",
   "static/fonts/pl.png": "/heart-disease-prediction-app/static/fonts/pl.27a0186d34a7198e3924619083c392bf.png",
   "static/fonts/tf.png": "/heart-disease-prediction-app/static/fonts/tf.340075d9bbba9c02c564e95ce1cf86a1.png",
-  "static/js/vendors~main.9c07aa5d.js.LICENSE.txt": "/heart-disease-prediction-app/static/js/vendors~main.9c07aa5d.js.LICENSE.txt"
+  "static/js/vendors~main.8e3527b3.js.LICENSE.txt": "/heart-disease-prediction-app/static/js/vendors~main.8e3527b3.js.LICENSE.txt"
 }

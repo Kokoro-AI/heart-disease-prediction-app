@@ -1,4 +1,7 @@
 {
+  "options": {
+    "analysis": "Analysis History"
+  },
   "form": {
     "title": "Heart disease prediction",
     "subtitle": "Fill the form and press 'Analyze'",

@@ -1,4 +1,7 @@
 {
+  "options": {
+    "analysis": "Analysis History"
+  },
   "tfjs": {
     "name": "Tensorflow JS",
     "goal": "Doctor specialized in statistical inference applied to heart disease",

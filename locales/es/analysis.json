@@ -1,4 +1,7 @@
 {
+  "options": {
+    "analysis": "Historial de Análisis"
+  },
   "tfjs": {
     "name": "Tensorflow JS",
     "meta": "Medico especializado en inferencia estadística aplicado a enfermedades de corazón",

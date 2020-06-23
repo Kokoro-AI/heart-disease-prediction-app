@@ -1,4 +1,7 @@
 {
+  "options": {
+    "analysis": "Historial de Análisis"
+  },
   "form": {
     "title": "Predicción de enfermedades del corazón",
     "subtitle": "Complete el formulario con sus datos y presione 'Analizar'",

@@ -1,4 +1,9 @@
 {
+  "titles": {
+    "app": "HEART",
+    "symptoms": "HEART · Síntomas",
+    "analysis": "HEART · Resultados"
+  },
   "validators": {
     "messages": {
       "required": "El campo es requerido",
@@ -7,7 +12,8 @@
       "date": "El campo debe tener el formato `dd/mm/aaaa`",
       "confirmation": "Debe tener el mismo valor que $t(common:{{field}})",
       "between": "El número debe estar entre {{min}} y {{max}}",
-      "positive": "El número debe ser positivo"
+      "positive": "El número debe ser positivo",
+      "slug": "El campo debe contener unicamente letras minúsculas, números ó '-'"
     }
   }
 }
