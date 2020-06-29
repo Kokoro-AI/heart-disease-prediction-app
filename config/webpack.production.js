@@ -11,6 +11,8 @@ const commonPaths = require('./common-paths');
 
 const APP_BASE = process.env.APP_BASE;
 
+console.log(`App Base Url: ${APP_BASE}`);
+
 const config = {
   output: {
     filename: 'static/js/[name].[chunkhash:8].bundle.js',
