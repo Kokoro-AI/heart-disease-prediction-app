@@ -23,7 +23,7 @@ const MomentLocale = () => {
 const App = () => (
   <RecoilRoot>
     <Suspense fallback={<Loading />}>
-      <BrowserRouter basename={APP_BASE}>
+      <BrowserRouter basename={`/${APP_BASE}`}>
         <MomentLocale />
         <Notification />
         <AppRoutes />
