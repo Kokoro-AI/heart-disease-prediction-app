@@ -12,6 +12,12 @@ i18n
 
     load: 'languageOnly',
 
+    // path where resources get loaded from, or a function
+    // returning a path:
+    // function(lngs, namespaces) { return customPath; }
+    // the returned path will interpolate lng, ns if provided like giving a static path
+    loadPath: `${APP_BASE}/locales/{{lng}}/{{ns}}.json`,
+
     // have a common namespace used around the full app
     ns: ['symptoms', 'common', 'analysis'],
     defaultNS: 'common',

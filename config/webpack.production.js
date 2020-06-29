@@ -9,12 +9,14 @@ const Dotenv = require('dotenv-webpack');
 
 const commonPaths = require('./common-paths');
 
+const APP_BASE = process.env.APP_BASE;
+
 const config = {
   output: {
     filename: 'static/js/[name].[chunkhash:8].bundle.js',
     chunkFilename: 'static/js/[name].[chunkhash:8].js',
     path: commonPaths.outputServerPath,
-    publicPath: '/heart-disease-prediction-app/'
+    publicPath: `/${APP_BASE}/`
   },
   mode: 'production',
   optimization: {
@@ -37,7 +39,7 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      APP_BASE: JSON.stringify('heart-disease-prediction-app'),
+      APP_BASE: JSON.stringify(APP_BASE),
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production', // use 'production' unless process.env.NODE_ENV is defined
@@ -51,8 +53,8 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       template: commonPaths.template,
-      title: 'heart-disease-prediction-app',
-      base: 'https://kokoro-ai.github.io/heart-disease-prediction-app',
+      title: 'Heart Disease Prediction App',
+      base: `/${APP_BASE}`,
       filename: path.resolve(__dirname, commonPaths.templatesOutputServerPath, 'index.html'),
       favicon: commonPaths.favicon,
     }),

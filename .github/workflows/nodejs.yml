@@ -17,6 +17,8 @@ jobs:
       run: yarn install
     - name: Build prod
       run: yarn build:prod
+      env:
+        APP_BASE: heart-disease-prediction-app
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:

@@ -44,7 +44,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: commonPaths.template,
       base: URL_BASE,
-      title: 'heart-disease-prediction-app',
+      title: 'Heart Disease Prediction App',
       filename: path.resolve(__dirname, commonPaths.outputPath, 'index.html'),
       favicon: commonPaths.favicon,
     }),
