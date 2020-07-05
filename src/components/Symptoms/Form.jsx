@@ -215,6 +215,7 @@ const SymptomsForm = (props) => {
           <Grid>
             <Grid.Row>
               <Grid.Column textAlign="right">
+                <Button.Reset>{t('form.resetButton')}</Button.Reset>
                 <Button.Submit
                   color="blue"
                   size="medium"

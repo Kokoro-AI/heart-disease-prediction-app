@@ -1,6 +1,6 @@
 {
   "options": {
-    "analysis": "Analysis History"
+    "analysis": "Analysis"
   },
   "tfjs": {
     "name": "Tensorflow JS",

@@ -1,6 +1,6 @@
 {
   "options": {
-    "analysis": "Analysis History"
+    "analysis": "Analysis"
   },
   "form": {
     "title": "Heart disease prediction",
@@ -94,6 +94,7 @@
       "label": "Exercise induced angina",
       "placeholder": "Exercise induced angina"
     },
-    "submitButton": "Analyze"
+    "submitButton": "Analyze",
+    "resetButton": "Reset"
   }
 }

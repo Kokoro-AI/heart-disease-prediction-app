@@ -2,13 +2,13 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 
 import { PropsRoute as Route } from 'app/components/Route';
-import AnalysisContainer from 'app/containers/Analysis';
-import SymptomsContainer from 'app/containers/Symptoms';
+import Analysis from 'app/pages/Analysis';
+import Landing from 'app/pages/Landing';
 
 const AppRoutes = (props) => (
   <Switch>
-    <Route exact path="/" title="symptoms" component={SymptomsContainer} {...props} />
-    <Route path="/analysis" title="analysis" component={AnalysisContainer} {...props} />
+    <Route exact path="/" title="home" component={Landing} {...props} />
+    <Route path="/analysis" title="analysis" component={Analysis} {...props} />
   </Switch>
 );
 
