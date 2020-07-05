@@ -1,6 +1,6 @@
 {
   "options": {
-    "analysis": "Historial de Análisis"
+    "analysis": "Análisis"
   },
   "form": {
     "title": "Predicción de enfermedades del corazón",
@@ -94,6 +94,7 @@
       "label": "Angina inducida por ejercicio",
       "placeholder": "Angina inducida por ejercicio"
     },
-    "submitButton": "Analizar"
+    "submitButton": "Analizar",
+    "resetButton": "Limpiar"
   }
 }
