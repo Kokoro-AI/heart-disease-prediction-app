@@ -18,12 +18,21 @@ import { symptomsFormValidation } from 'app/validations';
 import { DatePicker } from 'app/components/Form';
 
 const SymptomsForm = (props) => {
-  const { onSubmit, readOnly } = props;
+  const {
+    onSubmit,
+    readOnly,
+    initialValues,
+  } = props;
 
   const { t } = useTranslation('symptoms');
 
   return (
-    <Form onSubmit={onSubmit} validationSchema={symptomsFormValidation()}>
+    <Form
+      onSubmit={onSubmit}
+      initialValues={initialValues}
+      validationSchema={symptomsFormValidation()}
+      enableReinitialize
+    >
       <Form.Group>
         <Input
           name="fullName"
@@ -233,11 +242,13 @@ const SymptomsForm = (props) => {
 
 SymptomsForm.defaultProps = {
   readOnly: false,
+  initialValues: undefined,
 };
 
 SymptomsForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   readOnly: PropTypes.bool,
+  initialValues: PropTypes.shape({}),
 };
 
 export default SymptomsForm;

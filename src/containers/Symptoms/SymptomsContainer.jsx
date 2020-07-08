@@ -8,7 +8,7 @@ import SymptomsForm from 'app/components/Symptoms/Form';
 import { useHeartAnalyzer } from 'app/hooks/heart-analyze-hook';
 import { diseaseAnalysisHistory } from 'app/state';
 
-const SymptomsContainer = () => {
+const SymptomsContainer = ({ initialValues }) => {
   const { t } = useTranslation('symptoms');
   const { analyze } = useHeartAnalyzer();
   const [analysisHistory, setAnalysisHistory] = useRecoilState(diseaseAnalysisHistory);
@@ -29,7 +29,10 @@ const SymptomsContainer = () => {
           {t('form.subtitle')}
         </Header.Subheader>
       </Header>
-      <SymptomsForm onSubmit={onSubmit} />
+      <SymptomsForm
+        onSubmit={onSubmit}
+        initialValues={initialValues}
+      />
     </Segment>
   );
 };

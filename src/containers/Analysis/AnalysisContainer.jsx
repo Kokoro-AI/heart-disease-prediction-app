@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValueLoadable } from 'recoil';
 import moment from 'moment-timezone';
 import {
   Grid,
@@ -13,16 +13,22 @@ import {
 } from 'semantic-ui-react';
 
 import { Results, TfjsResult, PlResult } from 'app/components/Analysis';
+import Loading from 'app/components/Loading';
 import { diseaseAnalysisHistory } from 'app/state';
 
-const AnalysisContainer = ({ onClick, analysis }) => {
-  const analysisHistory = useRecoilValue(diseaseAnalysisHistory);
+const AnalysisContainer = ({ onSelect, analysis }) => {
+  const analysisHistoryLoadable = useRecoilValueLoadable(diseaseAnalysisHistory);
 
-  if (_.isEmpty(analysisHistory)) {
+  if (analysisHistoryLoadable.state === 'loading') {
+    return <Loading />;
+  }
+
+  if (analysisHistoryLoadable.state === 'hasError') {
     return null;
   }
 
   const { predictions: analysisPredictions } = analysis;
+  const analysisHistory = analysisHistoryLoadable.contents;
 
   return (
     <Segment padded>
@@ -32,12 +38,12 @@ const AnalysisContainer = ({ onClick, analysis }) => {
             {analysisHistory.map(({ symptoms, predictions }, i) => (
               <List.Item
                 key={`analysis-history-${i + 1}`}
-                onClick={() => onClick({ symptoms, predictions })}
+                onClick={() => onSelect({ symptoms, predictions })}
               >
                 <List.Content>
                   <List.Header as="a">{symptoms.fullName}</List.Header>
                   <List.Description as="a">
-                    {moment(symptoms.date, 'DD/MM/YYYY').format('MMMM Do YYYY, h:mm:ss a')}
+                    {moment(symptoms.date).format('DD MMMM YYYY h:mm a')}
                   </List.Description>
                 </List.Content>
               </List.Item>
@@ -45,16 +51,18 @@ const AnalysisContainer = ({ onClick, analysis }) => {
           </List>
         </Grid.Column>
         <Grid.Column width={6}>
-          <Results>
-            <TfjsResult
-              fluid
-              prediction={analysisPredictions.mlPrediction}
-            />
-            <PlResult
-              fluid
-              prediction={analysisPredictions.plPrediction}
-            />
-          </Results>
+          {analysisPredictions && (
+            <Results>
+              <TfjsResult
+                fluid
+                prediction={analysisPredictions.mlPrediction}
+              />
+              <PlResult
+                fluid
+                prediction={analysisPredictions.plPrediction}
+              />
+            </Results>
+          )}
         </Grid.Column>
       </Grid>
       <Responsive
@@ -70,7 +78,7 @@ const AnalysisContainer = ({ onClick, analysis }) => {
 };
 
 AnalysisContainer.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired,
   analysis: PropTypes.shape({
     predictions: PropTypes.shape(),
   }).isRequired,

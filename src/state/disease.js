@@ -2,7 +2,7 @@ import { selector } from 'recoil';
 
 const asyncLocalStorage = {
   setItem: async (key, value) => (
-    JSON.parse(localStorage.setItem(key, JSON.stringify(value || [])))
+    localStorage.setItem(key, JSON.stringify(value))
   ),
   getItem: async (key) => JSON.parse(localStorage.getItem(key)),
 };
