@@ -1,8 +1,8 @@
 {
-  "main.css": "/heart-disease-prediction-app/static/css/main.ef395d024555605c3168.css",
-  "main.js": "/heart-disease-prediction-app/static/js/main.42bb5ef7.bundle.js",
-  "vendors~main.css": "/heart-disease-prediction-app/static/css/1.ef395d024555605c3168.css",
-  "vendors~main.js": "/heart-disease-prediction-app/static/js/vendors~main.ab1f5edf.js",
+  "main.css": "/heart-disease-prediction-app/static/css/main.62af93baae1ce2fd2775.css",
+  "main.js": "/heart-disease-prediction-app/static/js/main.68425c6e.bundle.js",
+  "vendors~main.css": "/heart-disease-prediction-app/static/css/1.62af93baae1ce2fd2775.css",
+  "vendors~main.js": "/heart-disease-prediction-app/static/js/vendors~main.38a76481.js",
   "favicon.ico": "/heart-disease-prediction-app/favicon.ico",
   "index.html": "/heart-disease-prediction-app/index.html",
   "locales/en/analysis.json": "/heart-disease-prediction-app/locales/en/analysis.json",
@@ -22,5 +22,5 @@
   "static/fonts/landing.png": "/heart-disease-prediction-app/static/fonts/landing.8197a9ab7c61c2f9e35e734feef8ff07.png",
   "static/fonts/pl.png": "/heart-disease-prediction-app/static/fonts/pl.27a0186d34a7198e3924619083c392bf.png",
   "static/fonts/tf.png": "/heart-disease-prediction-app/static/fonts/tf.340075d9bbba9c02c564e95ce1cf86a1.png",
-  "static/js/vendors~main.ab1f5edf.js.LICENSE.txt": "/heart-disease-prediction-app/static/js/vendors~main.ab1f5edf.js.LICENSE.txt"
+  "static/js/vendors~main.38a76481.js.LICENSE.txt": "/heart-disease-prediction-app/static/js/vendors~main.38a76481.js.LICENSE.txt"
 }
