@@ -46,7 +46,7 @@
     "i18next-http-backend": "^1.0.15",
     "lodash": "^4.17.15",
     "moment": "^2.26.0",
-    "moment-timezone": "^0.5.31",
+    "moment-timezone": "^0.5.35",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dates": "^21.8.0",
